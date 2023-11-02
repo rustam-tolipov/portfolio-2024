@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Welcome from "../features/home/Welcome";
 
 const Home = () => {
+  useEffect(() => {
+    // console.log(window.scrollY);
+
+    window.addEventListener("scroll", () => {
+      // console.log(window.scrollY);
+    });
+  });
+
   return (
-    <div className="h-screen w-screen snap-y snap-mandatory overflow-scroll">
+    <div className="h-screen w-screen">
       <Welcome />
       <section className="flex h-screen w-full snap-start items-center justify-center bg-slate-900">
         1
@@ -19,3 +27,5 @@ const Home = () => {
 };
 
 export default Home;
+
+// * Later use: snap-y snap-mandatory overflow-scroll
