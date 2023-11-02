@@ -5,20 +5,23 @@ import Home from "./pages/Home";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
 import Loader from "./ui/Loader";
+import { ProjectProvider } from "./context/ProjectContext";
 
 function App() {
   return (
-    <Suspense fallback={<Loader />}>
+    <ProjectProvider>
       <BrowserRouter>
-        <Routes>
-          <Route element={<AppLayout />}>
-            <Route path="/" element={<Home />} />
-          </Route>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route path="/" element={<Home />} />
+            </Route>
 
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
-    </Suspense>
+    </ProjectProvider>
   );
 }
 

@@ -2,8 +2,6 @@ import React from "react";
 import Welcome from "../features/home/Welcome";
 
 const Home = () => {
-
-
   return (
     <div className="relative h-screen w-screen">
       <Welcome />

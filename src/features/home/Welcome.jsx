@@ -1,22 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { SlMouse } from "react-icons/sl";
+import { ProjectContext } from "../../context/ProjectContext";
+import { ZERO, BLUR, END_OF_LANDING } from "../../utils/constant";
 
 const Welcome = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const { scrollPosition } = useContext(ProjectContext);
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      setScrollPosition(window.scrollY);
-    });
-
-    return () => {
-      window.removeEventListener("scroll", () => {
-        setScrollPosition(window.scrollY);
-      });
-    };
-  }, []);
+  const [mousePosition, setMousePosition] = useState({ x: ZERO, y: ZERO });
 
   const handleMouseMove = (e) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
@@ -52,18 +43,18 @@ const Welcome = () => {
   return (
     <div className="z-10 flex h-screen w-full snap-start flex-col items-center justify-center gap-1 sm:gap-4">
       <div
-        className="absolute left-0 top-0 z-0 h-screen w-screen"
+        className="absolute left-0 top-0 z-0 h-screen w-screen transition-all duration-100 ease-linear"
         style={{
-          backdropFilter: `blur(${scrollPosition < 2 ? 40 : 0}px)`,
-          WebkitBackdropFilter: `blur(${scrollPosition < 2 ? 40 : 0}px)`,
+          backdropFilter: `blur(${scrollPosition < END_OF_LANDING ? BLUR : ZERO}px)`,
+          WebkitBackdropFilter: `blur(${scrollPosition < END_OF_LANDING ? BLUR : ZERO}px)`,
           maskImage: `radial-gradient(150px at ${mousePosition.x}px ${mousePosition.y}px, transparent 100%, black 100%)`,
           WebkitMaskImage: `radial-gradient(150px at ${mousePosition.x}px ${mousePosition.y}px, transparent 100%, black 100%)`,
         }}
       ></div>
 
-      {mousePosition.x > 0 && (
+      {mousePosition.x > ZERO && (
         <motion.div
-          className="absolute left-0 top-0 z-0 h-[300px] w-[300px] rounded-full border-4 border-gray-50"
+          className="absolute left-0 top-0 z-0 h-[300px] w-[300px] rounded-full border-4 border-gray-50 transition-all duration-100 ease-linear"
           variants={variants}
           animate="default"
         ></motion.div>
