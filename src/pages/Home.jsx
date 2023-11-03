@@ -5,15 +5,15 @@ const Home = () => {
   return (
     <div className="relative h-screen w-screen">
       <Welcome />
-      <section className="flex h-screen w-full snap-start items-center justify-center">
-        1
-      </section>
-      <section className="flex h-screen w-full snap-start items-center justify-center">
-        2
-      </section>
-      <section className="flex h-screen w-full snap-start items-center justify-center">
-        3
-      </section>
+
+      {Array.from({ length: 13 }).map((_, index) => (
+        <section
+          key={index}
+          className="flex h-screen w-full snap-start items-center justify-center"
+        >
+          {index}
+        </section>
+      ))}
     </div>
   );
 };

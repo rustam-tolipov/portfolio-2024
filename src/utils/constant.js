@@ -1,5 +1,24 @@
-export const ZERO = 0;
-export const BLUR = 40;
-export const END_OF_LANDING = 2;
+const ZERO = 0;
+const BLUR = 40;
+const END_OF_LANDING = 2;
 
-export const SPEED_FACTOR = 0.01;
+const SPEED_FACTOR = 0.01;
+const DAMPING_FACTOR = 0.05;
+const SCROLL_SPEED = 0.01;
+const FREQUENCY = 60;
+const CLOCK_SPEED = 0.001;
+const GADGET_SPEED = 0.01;
+const MOUSE_SPEED = 0.05;
+
+export {
+  ZERO,
+  BLUR,
+  END_OF_LANDING,
+  SPEED_FACTOR,
+  DAMPING_FACTOR,
+  SCROLL_SPEED,
+  FREQUENCY,
+  CLOCK_SPEED,
+  GADGET_SPEED,
+  MOUSE_SPEED,
+};
