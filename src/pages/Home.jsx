@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Welcome from "../features/home/Welcome";
+import Model from "../canvas/Model";
 
 const Home = () => {
   useEffect(() => {
@@ -11,15 +12,15 @@ const Home = () => {
   });
 
   return (
-    <div className="h-screen w-screen">
+    <div className="relative h-screen w-screen">
       <Welcome />
-      <section className="flex h-screen w-full snap-start items-center justify-center bg-slate-900">
+      <section className="flex h-screen w-full snap-start items-center justify-center">
         1
       </section>
-      <section className="flex h-screen w-full snap-start items-center justify-center bg-slate-800">
+      <section className="flex h-screen w-full snap-start items-center justify-center">
         2
       </section>
-      <section className="flex h-screen w-full snap-start items-center justify-center bg-slate-700">
+      <section className="flex h-screen w-full snap-start items-center justify-center">
         3
       </section>
     </div>
