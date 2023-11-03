@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Welcome from "../features/home/Welcome";
+import { motion } from "framer-motion";
+import Indicator from "../ui/Indicator";
+import { ProjectContext } from "../context/ProjectContext";
+import { FaMousePointer } from "react-icons/fa";
 
 const Home = () => {
+  const { isCurrent } = useContext(ProjectContext);
+
   return (
     <div className="relative h-screen w-screen">
       <Welcome />
@@ -14,6 +20,14 @@ const Home = () => {
           {index}
         </section>
       ))}
+
+      {isCurrent === "frames" && <Indicator type={isCurrent} />}
+
+      {isCurrent === "contact" && <Indicator type={isCurrent} />}
+
+      {isCurrent === "desktop" && <Indicator type={isCurrent} />}
+
+      {isCurrent === "scroll" && <Indicator type={isCurrent} />}
     </div>
   );
 };

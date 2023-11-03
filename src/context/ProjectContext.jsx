@@ -6,6 +6,7 @@ const ProjectContext = createContext();
 const ProjectProvider = ({ children }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isCurrent, setIsCurrent] = useState("welcome");
 
   const handleScroll = () => {
     const speedFactor = SPEED_FACTOR;
@@ -20,6 +21,28 @@ const ProjectProvider = ({ children }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (scrollPosition < 9.3) {
+      setIsCurrent("scroll");
+    } else if (scrollPosition < 12.4) {
+      setIsCurrent("desktop");
+    } else if (scrollPosition > 21.8 && scrollPosition < 30) {
+      setIsCurrent("frames");
+    } else if (scrollPosition < 30) {
+      setIsCurrent("laptop");
+    } else if (scrollPosition < 41) {
+      setIsCurrent("experience");
+    } else if (scrollPosition > 83 && scrollPosition < 90) {
+      setIsCurrent("contact");
+    } else if (scrollPosition > 90) {
+      setIsCurrent("end");
+    } else {
+      setIsCurrent("scroll");
+    }
+  }, [scrollPosition]);
+
+  console.log(scrollPosition, isCurrent);
+
   return (
     <ProjectContext.Provider
       value={{
@@ -27,6 +50,7 @@ const ProjectProvider = ({ children }) => {
         setScrollPosition,
         mousePosition,
         setMousePosition,
+        isCurrent,
       }}
     >
       {children}

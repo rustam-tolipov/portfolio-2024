@@ -42,9 +42,9 @@ export function Room(props) {
         <PerspectiveCamera
           name="Camera"
           makeDefault={true}
-          far={100}
+          far={2000}
           near={0.1}
-          fov={39.598}
+          fov={39.598 / 1.7}
           position={[4.462, 5.999, 5.392]}
           rotation={[-0.787, 0.57, 0.497]}
         />

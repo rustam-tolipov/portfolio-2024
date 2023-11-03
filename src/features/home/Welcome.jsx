@@ -64,11 +64,14 @@ const Welcome = () => {
         Hi, I&apos;m Rustam Tolipov
       </h1>
       <h2 className="z-20 text-lg font-thin text-gray-50 sm:text-4xl">&</h2>
-      <h2 className="z-20 bg-gray-100 px-2 py-1 text-lg font-light italic text-gray-900 sm:text-4xl">
+      <h2
+        style={{ backdropFilter: "blur(50px)" }}
+        className="z-20 border border-[#ffffff45] rounded-lg shadow-xl px-4 py-1 text-lg font-light text-gray-50 sm:text-4xl"
+      >
         Welcome to my portfolio
       </h2>
 
-      <motion.div
+      {/* <motion.div
         className="absolute bottom-0 z-20"
         animate={{
           y: [0, 10, 0],
@@ -77,7 +80,7 @@ const Welcome = () => {
         transition={{ repeat: Infinity, duration: 2 }}
       >
         <SlMouse className="text-7xl" />
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 };
