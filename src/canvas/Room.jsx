@@ -17,7 +17,7 @@ export function Room(props) {
         <group name="25726124_7125394svg" position={[15.357, 0.555, 0.462]} />
         <PerspectiveCamera
           name="Camera"
-          makeDefault={false}
+          makeDefault={true}
           far={100}
           near={0.1}
           fov={39.598}
@@ -26,7 +26,7 @@ export function Room(props) {
         />
         <PerspectiveCamera
           name="CameraMobile"
-          makeDefault={true}
+          makeDefault={false}
           far={100}
           near={0.1}
           fov={39.598}

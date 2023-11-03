@@ -1,15 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Welcome from "../features/home/Welcome";
-import Model from "../canvas/Model";
 
 const Home = () => {
-  useEffect(() => {
-    // console.log(window.scrollY);
 
-    window.addEventListener("scroll", () => {
-      // console.log(window.scrollY);
-    });
-  });
 
   return (
     <div className="relative h-screen w-screen">

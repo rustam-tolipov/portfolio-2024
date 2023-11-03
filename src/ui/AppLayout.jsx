@@ -4,7 +4,7 @@ import Model from "../canvas/Model";
 
 const AppLayout = () => {
   return (
-    <div className="relative">
+    <div className="relative scroll-smooth">
       <main className="absolute top-0 z-10">
         <Outlet />
       </main>
