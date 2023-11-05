@@ -10,6 +10,11 @@ const CLOCK_SPEED = 0.001;
 const GADGET_SPEED = 0.01;
 const MOUSE_SPEED = 0.05;
 
+const GITHUB = "https://github.com/Rustamxon7";
+const LINKEDIN = "https://www.linkedin.com/in/rustam-tolipov/";
+const EMAIL = "mailto:rustamxontolipov788@gmail.com";
+const INSTAGRAM = "https://www.instagram.com/rustamtolipov_/";
+
 export {
   ZERO,
   BLUR,
@@ -21,4 +26,8 @@ export {
   CLOCK_SPEED,
   GADGET_SPEED,
   MOUSE_SPEED,
+  GITHUB,
+  LINKEDIN,
+  EMAIL,
+  INSTAGRAM,
 };

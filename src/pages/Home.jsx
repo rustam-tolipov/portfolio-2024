@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Indicator from "../ui/Indicator";
 import { ProjectContext } from "../context/ProjectContext";
 import { FaMousePointer } from "react-icons/fa";
+import SocialLinks from "../ui/SocialLinks";
 
 const Home = () => {
   const { isCurrent } = useContext(ProjectContext);
@@ -22,12 +23,11 @@ const Home = () => {
       ))}
 
       {isCurrent === "frames" && <Indicator type={isCurrent} />}
-
       {isCurrent === "contact" && <Indicator type={isCurrent} />}
-
       {isCurrent === "desktop" && <Indicator type={isCurrent} />}
+      {isCurrent === "scroll" &&  <Indicator type={isCurrent} />}
 
-      {isCurrent === "scroll" && <Indicator type={isCurrent} />}
+      {isCurrent !== "welcome" && <SocialLinks />}
     </div>
   );
 };

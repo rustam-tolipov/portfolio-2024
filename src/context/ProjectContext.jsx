@@ -23,7 +23,7 @@ const ProjectProvider = ({ children }) => {
 
   useEffect(() => {
     if (scrollPosition < 9.3) {
-      setIsCurrent("scroll");
+      setIsCurrent("welcome");
     } else if (scrollPosition < 12.4) {
       setIsCurrent("desktop");
     } else if (scrollPosition > 21.8 && scrollPosition < 30) {
