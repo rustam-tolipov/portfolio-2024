@@ -10,4 +10,6 @@ body {
 
 .loader {
   background-image: url("/public/images/loading.jpeg");
+  background-size: cover;
+  background-position: center;
 }
