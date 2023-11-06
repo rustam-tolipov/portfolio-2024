@@ -7,3 +7,7 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
+
+.loader {
+  background-image: url("/public/images/loading.jpeg");
+}

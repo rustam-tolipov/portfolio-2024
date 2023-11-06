@@ -7,6 +7,16 @@ const ProjectProvider = ({ children }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isCurrent, setIsCurrent] = useState("welcome");
+  const [isHovered, setIsHovered] = useState(false);
+
+  const onHover = (projectName) => {
+    if (!isHovered) {
+      document.body.style.cursor = "pointer";
+    } else {
+      document.body.style.cursor = "default";
+    }
+    setIsHovered(projectName);
+  };
 
   const handleScroll = () => {
     const speedFactor = SPEED_FACTOR;
@@ -41,8 +51,6 @@ const ProjectProvider = ({ children }) => {
     }
   }, [scrollPosition]);
 
-  console.log(scrollPosition, isCurrent);
-
   return (
     <ProjectContext.Provider
       value={{
@@ -51,6 +59,9 @@ const ProjectProvider = ({ children }) => {
         mousePosition,
         setMousePosition,
         isCurrent,
+        setIsCurrent,
+        isHovered,
+        onHover,
       }}
     >
       {children}

@@ -7,11 +7,11 @@ const AppLayout = () => {
   return (
     <AnimatePresence mode="wait">
       <div className="relative scroll-smooth">
-        <main className="absolute top-0 z-10">
+        <main className="absolute top-0">
           <Outlet />
         </main>
 
-        <div className="fixed top-0 z-0 h-screen w-screen">
+        <div className="fixed top-0 z-10 h-screen w-screen">
           <Model />
         </div>
       </div>

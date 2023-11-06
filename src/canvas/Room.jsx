@@ -12,6 +12,7 @@ import { DAMPING_FACTOR, MOUSE_SPEED, SCROLL_SPEED } from "../utils/constant";
 import { ProjectContext } from "../context/ProjectContext";
 import Cameras from "./Cameras";
 import * as THREE from "three";
+import Frames from "./Frames";
 
 export function Room(props) {
   const group = useRef();
@@ -57,6 +58,8 @@ export function Room(props) {
           position={[6.38, 7.991, 7.179]}
           rotation={[-0.787, 0.57, 0.497]}
         />
+
+        <Frames nodes={nodes} materials={materials} />
         <mesh
           name="base"
           geometry={nodes.base.geometry}
@@ -164,48 +167,6 @@ export function Room(props) {
           material={materials.project}
           position={[0.773, 1.349, -1.121]}
           rotation={[Math.PI / 2, -Math.PI / 2, 0]}
-        />
-        <mesh
-          name="frame001"
-          geometry={nodes.frame001.geometry}
-          material={materials.project}
-          position={[-1.264, 0.977, -0.035]}
-          rotation={[0, 0, -Math.PI / 2]}
-        />
-        <mesh
-          name="frame002"
-          geometry={nodes.frame002.geometry}
-          material={materials.project}
-          position={[-1.264, 1.284, -0.071]}
-          rotation={[0, 0, -Math.PI / 2]}
-        />
-        <mesh
-          name="frame003"
-          geometry={nodes.frame003.geometry}
-          material={materials.project}
-          position={[-1.264, 1.594, 0.09]}
-          rotation={[0, 0, -Math.PI / 2]}
-        />
-        <mesh
-          name="frame004"
-          geometry={nodes.frame004.geometry}
-          material={materials.project}
-          position={[-1.264, 1.172, 0.344]}
-          rotation={[0, 0, -Math.PI / 2]}
-        />
-        <mesh
-          name="frame005"
-          geometry={nodes.frame005.geometry}
-          material={materials.project}
-          position={[-1.264, 1.517, -0.482]}
-          rotation={[0, 0, -Math.PI / 2]}
-        />
-        <mesh
-          name="frame006"
-          geometry={nodes.frame006.geometry}
-          material={materials.project}
-          position={[-1.264, 1.598, -0.221]}
-          rotation={[0, 0, -Math.PI / 2]}
         />
         <mesh
           name="laptop001"

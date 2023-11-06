@@ -13,7 +13,7 @@ const SocialLinks = () => {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0, x: -100 }}
-      className="fixed bottom-4 left-4 flex flex-col items-center gap-2"
+      className="fixed bottom-4 left-4 z-20 flex flex-col items-center gap-2"
       style={{ backdropFilter: "blur(10px)" }}
     >
       <SocialLink href={GITHUB}>

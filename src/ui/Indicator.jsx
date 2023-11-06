@@ -9,13 +9,14 @@ const Indicator = ({ type }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0, y: 100 }}
-      className="fixed bottom-4 right-4 flex items-center gap-2 rounded-lg border border-[#ffffff45] bg-[#33323000] px-4 py-2 shadow-xl"
+      className="fixed bottom-4 right-4 z-20 flex items-center gap-2 rounded-lg border border-[#ffffff45] bg-[#333230] px-4 py-2 shadow-xl"
       style={{ backdropFilter: "blur(10px)" }}
     >
       {type === "frames" && <Frames />}
       {type === "contact" && <Contact />}
       {type === "desktop" && <Desktop />}
       {type === "scroll" && <Scroll />}
+      {/* {type === "project" && <ProjectInfo />} */}
     </motion.div>
   );
 };
