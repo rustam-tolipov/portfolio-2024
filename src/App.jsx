@@ -6,6 +6,7 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
 import Loader from "./ui/Loader";
 import { ProjectProvider } from "./context/ProjectContext";
+import Project from "./pages/Project";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route element={<AppLayout />}>
               <Route path="/" element={<Home />} />
             </Route>
+            <Route path="/:link" element={<Project />} />
 
             <Route path="*" element={<PageNotFound />} />
           </Routes>

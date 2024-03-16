@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
 import Welcome from "../features/home/Welcome";
-import { motion } from "framer-motion";
 import Indicator from "../ui/Indicator";
 import { ProjectContext } from "../context/ProjectContext";
-import { FaMousePointer } from "react-icons/fa";
 import SocialLinks from "../ui/SocialLinks";
 
 const projects_list = [
@@ -66,7 +64,7 @@ const Home = () => {
       {isCurrent === "contact" && <Indicator type={isCurrent} />}
       {isCurrent === "desktop" && <Indicator type={isCurrent} />}
       {isCurrent === "scroll" && <Indicator type={isCurrent} />}
-      {isHovered && isCurrent !== "welcome" && (
+      {isHovered && isCurrent !== "welcome" && isCurrent === "frames" && (
         <ProjectInfo isHovered={isHovered} />
       )}
 
@@ -81,29 +79,26 @@ export default Home;
 
 const ProjectInfo = ({ isHovered }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="fixed bottom-4 right-4 z-20 flex min-w-[30dvw] items-center gap-2 rounded-lg border border-[#4242425c] bg-[#33323000] p-4 shadow-xl"
+    <div
+      className="fixed bottom-4 right-4 z-20 flex min-w-[30dvw] items-center gap-2 rounded-lg border border-[#4242425c] bg-[#000000c3] p-4 shadow-xl transition-all duration-100"
       style={{ backdropFilter: "blur(50px)" }}
     >
       <div className="flex flex-col gap-4">
         {projects_list.map((project) => {
           if (project.id == isHovered) {
             return (
-              <>
-                <h2 className="text-3xl font-bold text-gray-800	 drop-shadow-lg">
+              <React.Fragment key={project.id}>
+                <h2 className="text-3xl font-bold drop-shadow-lg">
                   {project.title}
                 </h2>
                 <p className="text-gray-100 drop-shadow-lg">
                   {project.description}
                 </p>
-              </>
+              </React.Fragment>
             );
           }
         })}
       </div>
-    </motion.div>
+    </div>
   );
 };

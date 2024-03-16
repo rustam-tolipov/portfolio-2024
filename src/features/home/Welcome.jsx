@@ -43,7 +43,7 @@ const Welcome = () => {
   return (
     <div className="z-10 flex h-screen w-full snap-start flex-col items-center justify-center gap-1 sm:gap-4">
       <div
-        className="absolute left-0 top-0 z-0 h-screen w-screen transition-all duration-100 ease-linear"
+        className="absolute left-0 top-0 z-20 h-screen w-screen transition-all duration-100 ease-linear"
         style={{
           backdropFilter: `blur(${scrollPosition < END_OF_LANDING ? BLUR : ZERO}px)`,
           WebkitBackdropFilter: `blur(${scrollPosition < END_OF_LANDING ? BLUR : ZERO}px)`,
@@ -54,7 +54,7 @@ const Welcome = () => {
 
       {mousePosition.x > ZERO && (
         <motion.div
-          className="absolute left-0 top-0 z-0 h-[300px] w-[300px] rounded-full border-4 border-gray-50 transition-all duration-100 ease-linear"
+          className="absolute left-0 top-0 z-20 h-[300px] w-[300px] rounded-full border-4 border-gray-50 transition-all duration-100 ease-linear"
           variants={variants}
           animate="default"
         ></motion.div>
@@ -66,7 +66,7 @@ const Welcome = () => {
       <h2 className="z-20 text-lg font-thin text-gray-50 sm:text-4xl">&</h2>
       <h2
         style={{ backdropFilter: "blur(50px)" }}
-        className="z-20 border border-[#ffffff45] rounded-lg shadow-xl px-4 py-1 text-lg font-light text-gray-50 sm:text-4xl"
+        className="z-20 rounded-lg border border-[#ffffff45] px-4 py-1 text-lg font-light text-gray-50 shadow-xl sm:text-4xl"
       >
         Welcome to my portfolio
       </h2>
