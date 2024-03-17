@@ -1,6 +1,11 @@
 /* eslint-disable react/no-unknown-property */
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { Html, useGLTF } from "@react-three/drei";
+import React, { useContext, useEffect, useRef } from "react";
+import {
+  Html,
+  PerspectiveCamera,
+  useAnimations,
+  useGLTF,
+} from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 
 import { ProjectContext } from "../context/ProjectContext";
@@ -9,15 +14,17 @@ import Frames from "./Frames";
 
 import TWEEN from "@tweenjs/tween.js";
 import annotations from "../../data/annotations.json";
+import { DAMPING_FACTOR, SCROLL_SPEED, isMobile } from "../utils/constant";
 
 export function Room({ controls, isCameraMoving }) {
   const group = useRef();
 
-  const { nodes, materials } = useGLTF("models/room.glb");
+  const { nodes, materials, animations } = useGLTF("models/room.glb");
+  const { actions } = useAnimations(animations, group);
 
   const { camera } = useThree();
 
-  const { isCurrent } = useContext(ProjectContext);
+  const { isCurrent, scrollPosition } = useContext(ProjectContext);
 
   useEffect(() => {
     const handleChangeCamera = (item) => {
@@ -48,16 +55,45 @@ export function Room({ controls, isCameraMoving }) {
         .start();
     };
 
-    if (isCurrent) {
+    if (isCurrent && !isMobile) {
       let current = annotations.find((item) => item.title === isCurrent);
       handleChangeCamera(current);
     }
   }, [camera.position, controls, isCurrent]);
 
+  useEffect(
+    () => void (actions.CameraActionMobile.reset().play().paused = true),
+    [],
+  );
+  useEffect(() => void (actions.CameraAction.reset().play().paused = true), []);
+
+  const animateOnScroll = (item) => {
+    return (item.time +=
+      (item.getClip().duration * scrollPosition * SCROLL_SPEED - item.time) *
+      DAMPING_FACTOR);
+  };
+
+  useFrame((state) => {
+    if (actions && isMobile) {
+      animateOnScroll(actions.CameraActionMobile);
+    }
+  });
+
   return (
     <group ref={group} dispose={null}>
       <group name="Scene">
         <Frames nodes={nodes} materials={materials} />
+
+        <PerspectiveCamera
+          name="CameraMobile"
+          makeDefault={isMobile}
+          far={100}
+          near={0.1}
+          fov={39.598}
+          position={[6.38, 7.991, 7.179]}
+          rotation={[-0.787, 0.57, 0.497]}
+        />
+
         <mesh
           name="base"
           geometry={nodes.base.geometry}
@@ -189,25 +225,27 @@ export function Room({ controls, isCameraMoving }) {
             material={materials.screen}
             // position={[0, 0, -0.001]}
           >
-            <Html
-              transform
-              className="screen"
-              scale={0.01}
-              position={[0, -0.004, 0]}
-              rotation={[Math.PI / 2, 0, 0]}
-              style={{
-                opacity: isCameraMoving ? 0 : 1,
-              }}
-            >
-              <iframe
-                src="https://www.youtube.com/embed/AFtUpMTs4vI"
-                title='BMW M4 - "Ultimate Racetrack"'
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                className="h-full w-full"
-              ></iframe>
-            </Html>
+            {/* {!isMobile && (
+              <Html
+                transform
+                className="screen"
+                scale={0.01}
+                position={[0, -0.004, 0]}
+                rotation={[Math.PI / 2, 0, 0]}
+                style={{
+                  opacity: isCameraMoving ? 0 : 1,
+                }}
+              >
+                <iframe
+                  src="https://www.youtube.com/embed/AFtUpMTs4vI"
+                  title='BMW M4 - "Ultimate Racetrack"'
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                  className="h-full w-full"
+                ></iframe>
+              </Html>
+            )} */}
           </mesh>
 
           <mesh
@@ -344,26 +382,28 @@ export function Room({ controls, isCameraMoving }) {
             geometry={nodes.Cube101_1.geometry}
             material={materials.screen}
           >
-            <Html
-              transform
-              occlude="blending"
-              className="tv"
-              scale={0.01}
-              position={[0, -0.004, 0]}
-              rotation={[Math.PI / 2, 0, 0]}
-              style={{
-                opacity: isCameraMoving ? 0 : 1,
-              }}
-            >
-              <iframe
-                src="https://www.youtube.com/embed/AFtUpMTs4vI"
-                title='BMW M4 - "Ultimate Racetrack"'
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                className="h-full w-full"
-              ></iframe>
-            </Html>
+            {/* {!isMobile && (
+              <Html
+                transform
+                occlude="blending"
+                className="tv"
+                scale={0.01}
+                position={[0, -0.004, 0]}
+                rotation={[Math.PI / 2, 0, 0]}
+                style={{
+                  opacity: isCameraMoving ? 0 : 1,
+                }}
+              >
+                <iframe
+                  src="https://www.youtube.com/embed/AFtUpMTs4vI"
+                  title='BMW M4 - "Ultimate Racetrack"'
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                  className="h-full w-full"
+                ></iframe>
+              </Html>
+            )} */}
           </mesh>
           <mesh
             name="tv001"

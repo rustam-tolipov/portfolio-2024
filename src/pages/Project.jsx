@@ -20,8 +20,6 @@ const Project = () => {
     const project = projects.find((item) => item.link === link);
     setProject(project);
 
-    window.scrollTo(0, 0);
-
     return () => {
       setProject(null);
     };

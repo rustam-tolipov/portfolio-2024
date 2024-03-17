@@ -49,8 +49,8 @@ const Home = () => {
   const { isCurrent, isHovered } = useContext(ProjectContext);
 
   return (
-    <div className="relative h-screen w-screen snap-y snap-mandatory overflow-scroll">
-      {/* <Welcome /> */}
+    <div className="relative h-screen w-screen">
+      <Welcome />
 
       {Array.from({ length: 13 }).map((_, index) => (
         <section
@@ -79,7 +79,7 @@ export default Home;
 const ProjectInfo = ({ isHovered }) => {
   return (
     <div
-      className="fixed bottom-4 max-w-[80dvw] right-4 z-20 flex items-center gap-2 rounded-lg border border-[#4242425c] bg-[#000000c3] p-4 shadow-xl transition-all duration-100 lg:min-w-[30dvw]"
+      className="fixed bottom-4 right-4 z-20 flex max-w-[80dvw] items-center gap-2 rounded-lg border border-[#4242425c] bg-[#000000c3] p-4 shadow-xl transition-all duration-100 lg:min-w-[30dvw]"
       style={{ backdropFilter: "blur(50px)" }}
     >
       <div className="flex flex-col gap-4">

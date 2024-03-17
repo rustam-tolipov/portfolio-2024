@@ -19,6 +19,22 @@ const ProjectProvider = ({ children }) => {
     setIsHovered(projectName);
   };
 
+  useEffect(() => {
+    if (isHovered) {
+      document.body.style.cursor = "pointer";
+    } else {
+      document.body.style.cursor = "default";
+    }
+  }, [isHovered]);
+
+  useEffect(() => {
+    const onScroll = () => setScrollPosition(window.scrollY * SPEED_FACTOR);
+    // clean up code
+    window.removeEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <ProjectContext.Provider
       value={{

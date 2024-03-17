@@ -4,6 +4,7 @@ import { Room } from "./Room";
 import { OrbitControls } from "@react-three/drei";
 import { useFrame } from "react-three-fiber";
 import TWEEN from "@tweenjs/tween.js";
+import { isMobile } from "../utils/constant";
 
 const Experience = () => {
   const ref = useRef();
@@ -17,19 +18,21 @@ const Experience = () => {
         isCameraMoving={isCameraMoving}
         setIsCameraMoving={setIsCameraMoving}
       />
-      <OrbitControls
-        ref={ref}
-        target={[0, 1, 0]}
-        panSpeed={0.05}
-        rotateSpeed={0.05}
-        // maxPolarAngle={Math.PI / 1.9}
-        // minPolarAngle={Math.PI / 3}
-        // minAzimuthAngle={-Math.PI / 10}
-        // maxAzimuthAngle={Math.PI / 2}
-        // enableZoom={false}
-        enableDamping
-        dampingFactor={0.1}
-      />
+      {!isMobile && (
+        <OrbitControls
+          ref={ref}
+          target={[0, 1, 0]}
+          panSpeed={0.05}
+          rotateSpeed={0.05}
+          // maxPolarAngle={Math.PI / 1.9}
+          // minPolarAngle={Math.PI / 3}
+          // minAzimuthAngle={-Math.PI / 10}
+          // maxAzimuthAngle={Math.PI / 2}
+          enableZoom={false}
+          enableDamping
+          dampingFactor={0.1}
+        />
+      )}
       <Tween setIsCameraMoving={setIsCameraMoving} />
     </>
   );

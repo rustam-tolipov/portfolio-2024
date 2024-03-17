@@ -13,7 +13,7 @@ const Section = ({ chidren, id }) => {
 
   return (
     <section
-      className="flex h-screen w-full snap-start items-center justify-center text-gray-50"
+      className="flex h-screen w-full items-center justify-center text-gray-50"
       id={id}
       ref={ref}
     >

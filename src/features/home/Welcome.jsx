@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { SlMouse } from "react-icons/sl";
 import { ProjectContext } from "../../context/ProjectContext";
-import { ZERO, BLUR, END_OF_LANDING } from "../../utils/constant";
+import { ZERO, BLUR, END_OF_LANDING, isMobile } from "../../utils/constant";
 
 const Welcome = () => {
   const { scrollPosition } = useContext(ProjectContext);
@@ -41,7 +40,7 @@ const Welcome = () => {
   };
 
   return (
-    <div className="z-10 flex h-screen w-full snap-start flex-col items-center justify-center gap-1 sm:gap-4">
+    <div className="z-10 flex h-screen w-full flex-col items-center justify-center gap-1 sm:gap-4">
       <div
         className="absolute left-0 top-0 z-20 h-screen w-screen transition-all duration-100 ease-linear"
         style={{
@@ -52,7 +51,7 @@ const Welcome = () => {
         }}
       ></div>
 
-      {mousePosition.x > ZERO && (
+      {!isMobile && mousePosition.x > ZERO && (
         <motion.div
           className="absolute left-0 top-0 z-20 h-[300px] w-[300px] rounded-full border-4 border-gray-50 transition-all duration-100 ease-linear"
           variants={variants}
