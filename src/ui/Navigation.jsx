@@ -13,19 +13,19 @@ const Navigation = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0, y: 100 }}
-      className="fixed right-20 top-0 z-20 flex h-screen flex-col justify-center gap-8"
+      className="fixed right-4 top-0 z-20 flex h-screen flex-col justify-end gap-2 pb-24 lg:right-20 lg:justify-center lg:gap-8"
     >
       <NavButton onClick={() => setIsCurrent("welcome")}>
-        <CiHome className="text-2xl text-gray-50" />
+        <CiHome className="text-xl text-gray-50 lg:text-2xl" />
       </NavButton>
       <NavButton onClick={() => setIsCurrent("desktop")}>
-        <CiDesktop className="text-2xl text-gray-50" />
+        <CiDesktop className="text-xl text-gray-50 lg:text-2xl" />
       </NavButton>
       <NavButton onClick={() => setIsCurrent("projects")}>
-        <CiGrid42 className="text-2xl text-gray-50" />
+        <CiGrid42 className="text-xl text-gray-50 lg:text-2xl" />
       </NavButton>
       <NavButton onClick={() => setIsCurrent("tv")}>
-        <CiYoutube className="text-2xl text-gray-50" />
+        <CiYoutube className="text-xl text-gray-50 lg:text-2xl" />
       </NavButton>
     </motion.div>
   );
@@ -36,7 +36,7 @@ export default Navigation;
 const NavButton = ({ children, onClick }) => {
   return (
     <motion.button
-      className="flex h-12 w-12 items-center justify-center gap-2 rounded-lg border border-[#ffffff45] bg-[#33323000] shadow-xl"
+      className="flex h-10 w-10 items-center justify-center gap-2 rounded-lg border border-[#ffffff45] bg-[#33323000] shadow-xl lg:h-12 lg:w-12"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       style={{ backdropFilter: "blur(10px)" }}

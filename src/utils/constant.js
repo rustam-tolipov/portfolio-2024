@@ -15,6 +15,8 @@ const LINKEDIN = "https://www.linkedin.com/in/rustam-tolipov/";
 const EMAIL = "mailto:rustamxontolipov788@gmail.com";
 const INSTAGRAM = "https://www.instagram.com/rustamtolipov_/";
 
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
 export {
   ZERO,
   BLUR,
@@ -30,4 +32,5 @@ export {
   LINKEDIN,
   EMAIL,
   INSTAGRAM,
+  isMobile,
 };

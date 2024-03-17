@@ -3,6 +3,7 @@ import * as THREE from "three";
 import Experience from "./Experience";
 import { useContext, useEffect, useRef } from "react";
 import { ProjectContext } from "../context/ProjectContext";
+import { isMobile } from "../utils/constant";
 
 const Model = () => {
   const isMounted = useRef(false);
@@ -31,7 +32,7 @@ const Model = () => {
       camera={{
         position: [4.462, 5.999, 5.392],
         rotation: [-0.787, 0.57, 0.497],
-        fov: 25,
+        fov: isMobile ? 35 : 25,
       }}
     >
       <Experience />

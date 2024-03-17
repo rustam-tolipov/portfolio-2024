@@ -13,19 +13,19 @@ const SocialLinks = () => {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0, x: -100 }}
-      className="fixed bottom-4 left-4 z-20 flex flex-col items-center gap-2"
+      className="fixed left-2 top-1/2 z-20 flex -translate-y-1/2 transform flex-col items-center gap-2 lg:bottom-4 lg:left-4"
     >
       <SocialLink href={GITHUB}>
-        <PiGithubLogoThin className="text-2xl" />
+        <PiGithubLogoThin className="text-md lg:text-2xl" />
       </SocialLink>
       <SocialLink href={LINKEDIN}>
-        <CiLinkedin className="text-2xl" />
+        <CiLinkedin className="text-md lg:text-2xl" />
       </SocialLink>
       <SocialLink href={EMAIL}>
-        <SiGmail className="text-2xl" />
+        <SiGmail className="text-md lg:text-2xl" />
       </SocialLink>
       <SocialLink href={INSTAGRAM}>
-        <CiInstagram className="text-2xl" />
+        <CiInstagram className="text-md lg:text-2xl" />
       </SocialLink>
     </motion.div>
   );
@@ -39,7 +39,7 @@ const SocialLink = ({ href, children }) => {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="flex items-center gap-2 rounded-lg border border-[#ffffff45] bg-[#33323000] p-2 shadow-xl"
+      className="flex items-center gap-1 rounded-lg border border-[#ffffff45] bg-[#33323000] p-1 shadow-xl lg:gap-2 lg:p-2"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       style={{ backdropFilter: "blur(10px)" }}
