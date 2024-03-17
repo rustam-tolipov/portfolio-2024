@@ -6,6 +6,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
+  user-select: none;
 }
 
 .loader {
@@ -18,4 +19,26 @@ body {
   background-image: url("/public/images/loading.jpeg");
   background-size: cover;
   background-position: center;
+}
+
+.screen {
+  scale: 1;
+  height: 1600px;
+  width: 2740px;
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tv {
+  scale: 1;
+  height: 1510px;
+  width: 2560px;
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

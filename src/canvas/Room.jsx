@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
-import React, { useContext, useEffect, useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { Html, useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 
 import { ProjectContext } from "../context/ProjectContext";
@@ -10,7 +10,7 @@ import Frames from "./Frames";
 import TWEEN from "@tweenjs/tween.js";
 import annotations from "../../data/annotations.json";
 
-export function Room({ controls }) {
+export function Room({ controls, isCameraMoving }) {
   const group = useRef();
 
   const { nodes, materials } = useGLTF("models/room.glb");
@@ -187,7 +187,29 @@ export function Room({ controls }) {
             name="Cube008_1"
             geometry={nodes.Cube008_1.geometry}
             material={materials.screen}
-          />
+            // position={[0, 0, -0.001]}
+          >
+            <Html
+              transform
+              className="screen"
+              scale={0.01}
+              position={[0, -0.004, 0]}
+              rotation={[Math.PI / 2, 0, 0]}
+              style={{
+                opacity: isCameraMoving ? 0 : 1,
+              }}
+            >
+              <iframe
+                src="https://www.youtube.com/embed/AFtUpMTs4vI"
+                title='BMW M4 - "Ultimate Racetrack"'
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                className="h-full w-full"
+              ></iframe>
+            </Html>
+          </mesh>
+
           <mesh
             name="desktop001"
             geometry={nodes.desktop001.geometry}
@@ -321,7 +343,28 @@ export function Room({ controls }) {
             name="Cube101_1"
             geometry={nodes.Cube101_1.geometry}
             material={materials.screen}
-          />
+          >
+            <Html
+              transform
+              occlude="blending"
+              className="tv"
+              scale={0.01}
+              position={[0, -0.004, 0]}
+              rotation={[Math.PI / 2, 0, 0]}
+              style={{
+                opacity: isCameraMoving ? 0 : 1,
+              }}
+            >
+              <iframe
+                src="https://www.youtube.com/embed/AFtUpMTs4vI"
+                title='BMW M4 - "Ultimate Racetrack"'
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                className="h-full w-full"
+              ></iframe>
+            </Html>
+          </mesh>
           <mesh
             name="tv001"
             geometry={nodes.tv001.geometry}
