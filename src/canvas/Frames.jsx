@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unknown-property */
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef } from "react";
 import { Image } from "@react-three/drei";
-import { useFrame } from "react-three-fiber";
 
 import {
   rasmgaOl,

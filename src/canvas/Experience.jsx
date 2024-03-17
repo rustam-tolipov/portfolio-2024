@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unknown-property */
-import { useContext, useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Room } from "./Room";
 import { OrbitControls } from "@react-three/drei";
 import { useFrame } from "react-three-fiber";

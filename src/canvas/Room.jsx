@@ -9,11 +9,11 @@ import {
 import { useFrame, useThree } from "@react-three/fiber";
 
 import { ProjectContext } from "../context/ProjectContext";
-
 import Frames from "./Frames";
 
 import TWEEN from "@tweenjs/tween.js";
 import annotations from "../../data/annotations.json";
+
 import { DAMPING_FACTOR, SCROLL_SPEED, isMobile } from "../utils/constant";
 
 export function Room({ controls, isCameraMoving }) {

@@ -5,7 +5,6 @@ const ProjectContext = createContext();
 
 const ProjectProvider = ({ children }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isCurrent, setIsCurrent] = useState("welcome");
   const [isHovered, setIsHovered] = useState(false);
 
@@ -71,8 +70,6 @@ const ProjectProvider = ({ children }) => {
       value={{
         scrollPosition,
         setScrollPosition,
-        mousePosition,
-        setMousePosition,
         isCurrent,
         setIsCurrent,
         isHovered,
