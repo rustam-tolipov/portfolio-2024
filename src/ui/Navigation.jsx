@@ -7,12 +7,12 @@ const Navigation = () => {
   const { setIsCurrent } = useContext(ProjectContext);
 
   return (
-    <div
-      initial={{ opacity: 0, x: -100 }}
-      animate={{ opacity: 1, x: 0 }}
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      exit={{ opacity: 0, x: -100 }}
-      className="fixed bottom-4 right-4 z-20 flex flex-col items-center gap-2"
+      exit={{ opacity: 0, y: 100 }}
+      className="fixed top-4 right-4 z-20 flex flex-col items-center gap-2"
     >
       <NavButton onClick={() => setIsCurrent("welcome")}>Welcome</NavButton>
       <NavButton onClick={() => setIsCurrent("desktop")}>Desktop</NavButton>
@@ -21,7 +21,7 @@ const Navigation = () => {
         Experience
       </NavButton>
       <NavButton onClick={() => setIsCurrent("contact")}>Contact</NavButton>
-    </div>
+    </motion.div>
   );
 };
 

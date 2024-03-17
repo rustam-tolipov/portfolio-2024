@@ -12,11 +12,10 @@ const Indicator = ({ type }) => {
       className="fixed bottom-4 right-4 z-20 flex items-center gap-2 rounded-lg border border-[#ffffff45] bg-[#333230] px-4 py-2 shadow-xl"
       style={{ backdropFilter: "blur(10px)" }}
     >
-      {type === "frames" && <Frames />}
+      {type === "projects" && <Frames />}
       {type === "contact" && <Contact />}
       {type === "desktop" && <Desktop />}
       {type === "scroll" && <Scroll />}
-      {/* {type === "project" && <ProjectInfo />} */}
     </motion.div>
   );
 };

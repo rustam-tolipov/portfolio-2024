@@ -1,9 +1,26 @@
 import { Canvas } from "@react-three/fiber";
 import * as THREE from "three";
 import Experience from "./Experience";
-import { OrbitControls } from "@react-three/drei";
+import { useContext, useEffect, useRef } from "react";
+import { ProjectContext } from "../context/ProjectContext";
 
 const Model = () => {
+  const isMounted = useRef(false);
+
+  const { setIsCanvasLoaded } = useContext(ProjectContext);
+
+  useEffect(() => {
+    isMounted.current = true;
+
+    setTimeout(() => {
+      if (isMounted.current) {
+        setIsCanvasLoaded(true);
+      }
+    }, 500);
+
+    return () => (isMounted.current = false);
+  }, [setIsCanvasLoaded]);
+
   return (
     <Canvas
       onCreated={({ gl }) => {

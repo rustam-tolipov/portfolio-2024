@@ -8,6 +8,7 @@ const ProjectProvider = ({ children }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isCurrent, setIsCurrent] = useState("welcome");
   const [isHovered, setIsHovered] = useState(false);
+  const [isCanvasLoaded, setIsCanvasLoaded] = useState(false);
 
   const onHover = (projectName) => {
     if (!isHovered) {
@@ -17,7 +18,6 @@ const ProjectProvider = ({ children }) => {
     }
     setIsHovered(projectName);
   };
-
 
   return (
     <ProjectContext.Provider
@@ -30,6 +30,8 @@ const ProjectProvider = ({ children }) => {
         setIsCurrent,
         isHovered,
         onHover,
+        isCanvasLoaded,
+        setIsCanvasLoaded,
       }}
     >
       {children}
