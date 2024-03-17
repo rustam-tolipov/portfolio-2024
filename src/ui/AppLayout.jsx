@@ -8,7 +8,7 @@ const AppLayout = () => {
   return (
     <AnimatePresence mode="wait">
       <div className="relative scroll-smooth">
-        <main className="absolute top-0 z-10">
+        <main className="absolute top-0">
           <Outlet />
         </main>
 
