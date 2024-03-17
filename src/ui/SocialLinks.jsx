@@ -14,7 +14,6 @@ const SocialLinks = () => {
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0, x: -100 }}
       className="fixed bottom-4 left-4 z-20 flex flex-col items-center gap-2"
-      style={{ backdropFilter: "blur(10px)" }}
     >
       <SocialLink href={GITHUB}>
         <PiGithubLogoThin className="text-2xl" />
@@ -43,6 +42,7 @@ const SocialLink = ({ href, children }) => {
       className="flex items-center gap-2 rounded-lg border border-[#ffffff45] bg-[#33323000] p-2 shadow-xl"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
+      style={{ backdropFilter: "blur(10px)" }}
     >
       {children}
     </motion.a>

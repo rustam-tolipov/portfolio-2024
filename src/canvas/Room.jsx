@@ -1,64 +1,62 @@
 /* eslint-disable react/no-unknown-property */
 import React, { useContext, useEffect, useRef } from "react";
-import {
-  useGLTF,
-  useAnimations,
-  OrbitControls,
-  PerspectiveCamera,
-  PresentationControls,
-} from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import { DAMPING_FACTOR, MOUSE_SPEED, SCROLL_SPEED } from "../utils/constant";
+import { useGLTF } from "@react-three/drei";
+import { useFrame, useThree } from "@react-three/fiber";
+
 import { ProjectContext } from "../context/ProjectContext";
-import Cameras from "./Cameras";
-import * as THREE from "three";
+
 import Frames from "./Frames";
 
-export function Room(props) {
+import TWEEN from "@tweenjs/tween.js";
+import annotations from "../../data/annotations.json";
+
+export function Room({ controls }) {
   const group = useRef();
 
-  const { scrollPosition } = useContext(ProjectContext);
+  const { nodes, materials } = useGLTF("models/room.glb");
 
-  const { nodes, materials, animations } = useGLTF("models/room.glb");
-  const { actions } = useAnimations(animations, group);
+  const { camera } = useThree();
 
-  useEffect(() => void (actions.CameraAction.reset().play().paused = true), []);
+  const { isCurrent } = useContext(ProjectContext);
 
-  const animateOnScroll = (item) => {
-    return (item.time +=
-      (item.getClip().duration * scrollPosition * SCROLL_SPEED - item.time) *
-      DAMPING_FACTOR);
-  };
+  useEffect(() => {
+    const handleChangeCamera = (item) => {
+      // change target
+      new TWEEN.Tween(controls.current.target)
+        .to(
+          {
+            x: item.lookAt.x,
+            y: item.lookAt.y,
+            z: item.lookAt.z,
+          },
+          2100,
+        )
+        .easing(TWEEN.Easing.Cubic.Out)
+        .start();
 
-  useFrame((state) => {
-    if (actions) {
-      animateOnScroll(actions.CameraAction);
+      // change camera position
+      new TWEEN.Tween(camera.position)
+        .to(
+          {
+            x: item.position.x,
+            y: item.position.y,
+            z: item.position.z,
+          },
+          2000,
+        )
+        .easing(TWEEN.Easing.Cubic.Out)
+        .start();
+    };
+
+    if (isCurrent) {
+      let current = annotations.find((item) => item.title === isCurrent);
+      handleChangeCamera(current);
     }
-  });
+  }, [camera.position, controls, isCurrent]);
 
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} dispose={null}>
       <group name="Scene">
-        <group name="25726124_7125394svg" position={[15.357, 0.555, 0.462]} />
-        <PerspectiveCamera
-          name="Camera"
-          makeDefault={true}
-          far={2000}
-          near={0.1}
-          fov={39.598 / 1.7}
-          position={[4.462, 5.999, 5.392]}
-          rotation={[-0.787, 0.57, 0.497]}
-        />
-        <PerspectiveCamera
-          name="CameraMobile"
-          makeDefault={false}
-          far={100}
-          near={0.1}
-          fov={39.598}
-          position={[6.38, 7.991, 7.179]}
-          rotation={[-0.787, 0.57, 0.497]}
-        />
-
         <Frames nodes={nodes} materials={materials} />
         <mesh
           name="base"

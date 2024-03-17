@@ -11,8 +11,12 @@ const Model = () => {
       }}
       dpr={[1, 2]}
       gl={{ antialias: true }}
+      camera={{
+        position: [4.462, 5.999, 5.392],
+        rotation: [-0.787, 0.57, 0.497],
+        fov: 25,
+      }}
     >
-      {/* <OrbitControls /> */}
       <Experience />
     </Canvas>
   );

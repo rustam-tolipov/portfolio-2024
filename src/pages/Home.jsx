@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import Welcome from "../features/home/Welcome";
-import Indicator from "../ui/Indicator";
-import { ProjectContext } from "../context/ProjectContext";
 import SocialLinks from "../ui/SocialLinks";
+import Navigation from "../ui/Navigation";
 
 const projects_list = [
   {
@@ -45,10 +44,8 @@ const projects_list = [
 ];
 
 const Home = () => {
-  const { isCurrent, isHovered } = useContext(ProjectContext);
-
   return (
-    <div className="relative h-screen w-screen">
+    <div className="relative h-screen w-screen snap-y snap-mandatory overflow-scroll">
       <Welcome />
 
       {Array.from({ length: 13 }).map((_, index) => (
@@ -60,15 +57,16 @@ const Home = () => {
         </section>
       ))}
 
-      {isCurrent === "frames" && !isHovered && <Indicator type={isCurrent} />}
+      {/* {isCurrent === "frames" && !isHovered && <Indicator type={isCurrent} />}
       {isCurrent === "contact" && <Indicator type={isCurrent} />}
       {isCurrent === "desktop" && <Indicator type={isCurrent} />}
       {isCurrent === "scroll" && <Indicator type={isCurrent} />}
       {isHovered && isCurrent !== "welcome" && isCurrent === "frames" && (
         <ProjectInfo isHovered={isHovered} />
-      )}
+      )} */}
 
-      {isCurrent !== "welcome" && <SocialLinks />}
+      <SocialLinks />
+      <Navigation />
     </div>
   );
 };
