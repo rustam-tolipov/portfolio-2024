@@ -17,10 +17,6 @@ const Experience = () => {
         target={[0, 1, 0]}
         panSpeed={0.05}
         rotateSpeed={0.05}
-        // maxPolarAngle={Math.PI / 2}
-        // minPolarAngle={Math.PI / 3}
-        // minAzimuthAngle={-Math.PI / 10}
-        // maxAzimuthAngle={Math.PI / 2}
         enableZoom={false}
         enableDamping
         dampingFactor={0.1}

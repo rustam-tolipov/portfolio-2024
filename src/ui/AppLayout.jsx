@@ -16,7 +16,7 @@ const AppLayout = () => {
           </main>
         )}
 
-        <div className="fixed top-0 z-10 h-screen w-screen">
+        <div className="fixed top-0 h-screen w-screen">
           <Model />
         </div>
       </div>

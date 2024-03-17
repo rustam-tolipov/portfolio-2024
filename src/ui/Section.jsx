@@ -1,28 +1,23 @@
 import { useInView } from "framer-motion";
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
+import { ProjectContext } from "../context/ProjectContext";
 
-const Section = ({ chidren }) => {
+const Section = ({ chidren, id }) => {
   const ref = useRef();
-  const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
-    console.log(isInView);
-  }, [isInView]);
+    if (ref.current) {
+      console.log(ref.current.id);
+    }
+  }, [ref]);
 
   return (
     <section
-      className="flex h-screen w-full snap-start items-center justify-center bg-slate-900 text-gray-50"
+      className="flex h-screen w-full snap-start items-center justify-center text-gray-50"
+      id={id}
       ref={ref}
     >
-      <div
-        style={{
-          transform: isInView ? "none" : "translateY(-200px)",
-          opacity: isInView ? 1 : 0,
-          transition: "all 0.9s ease",
-        }}
-      >
-        {chidren}
-      </div>
+      {chidren}
     </section>
   );
 };
