@@ -4,6 +4,8 @@ import SocialLinks from "../ui/SocialLinks";
 import Navigation from "../ui/Navigation";
 import { ProjectContext } from "../context/ProjectContext";
 import Indicator from "../ui/Indicator";
+import { isMobile } from "../utils/constant";
+import { motion } from "framer-motion";
 
 const projects_list = [
   {
@@ -46,28 +48,45 @@ const projects_list = [
 ];
 
 const Home = () => {
-  const { isCurrent, isHovered } = useContext(ProjectContext);
+  const { isCurrent, isHovered, scrollPosition } = useContext(ProjectContext);
 
   return (
     <div className="relative h-screen w-screen">
       <Welcome />
 
-      {Array.from({ length: 13 }).map((_, index) => (
+      {Array.from({ length: isMobile ? 13 : 1 }).map((_, index) => (
         <section
           key={index}
           className="flex h-screen w-full snap-start items-center justify-center"
-        >
-          {index}
-        </section>
+        ></section>
       ))}
 
-      {isCurrent && !isHovered && <Indicator type={isCurrent} />}
-      {isHovered && isCurrent === "projects" && (
-        <ProjectInfo isHovered={isHovered} />
-      )}
+      {isCurrent && !isHovered && !isMobile && <Indicator type={isCurrent} />}
+      {isHovered &&
+        isCurrent === "projects" &&
+        scrollPosition > 5 &&
+        !isMobile && <ProjectInfo isHovered={isHovered} />}
 
-      <SocialLinks />
-      <Navigation />
+      {scrollPosition > 5 && (
+        <>
+          <SocialLinks />
+          <Navigation />
+          <div className="fixed bottom-4 z-20 hidden w-full items-center justify-center lg:flex">
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              exit={{ opacity: 0, y: 100 }}
+              className="w-fit items-center justify-center gap-2 rounded-lg border border-[#ffffff45] px-4 py-2 text-xs shadow-xl "
+              style={{ backdropFilter: "blur(10px)" }}
+            >
+              {isCurrent === "projects"
+                ? "Mouse over the projects and click to learn more"
+                : "Scroll down to see more"}
+            </motion.div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

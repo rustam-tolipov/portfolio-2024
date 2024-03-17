@@ -65,7 +65,6 @@ export function Room({ controls, isCameraMoving }) {
     () => void (actions.CameraActionMobile.reset().play().paused = true),
     [],
   );
-  useEffect(() => void (actions.CameraAction.reset().play().paused = true), []);
 
   const animateOnScroll = (item) => {
     return (item.time +=
@@ -225,7 +224,7 @@ export function Room({ controls, isCameraMoving }) {
             material={materials.screen}
             // position={[0, 0, -0.001]}
           >
-            {/* {!isMobile && (
+            {!isMobile && (
               <Html
                 transform
                 className="screen"
@@ -239,13 +238,12 @@ export function Room({ controls, isCameraMoving }) {
                 <iframe
                   src="https://www.youtube.com/embed/AFtUpMTs4vI"
                   title='BMW M4 - "Ultimate Racetrack"'
-                  frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                   className="h-full w-full"
                 ></iframe>
               </Html>
-            )} */}
+            )}
           </mesh>
 
           <mesh
@@ -382,7 +380,7 @@ export function Room({ controls, isCameraMoving }) {
             geometry={nodes.Cube101_1.geometry}
             material={materials.screen}
           >
-            {/* {!isMobile && (
+            {!isMobile && (
               <Html
                 transform
                 occlude="blending"
@@ -397,13 +395,12 @@ export function Room({ controls, isCameraMoving }) {
                 <iframe
                   src="https://www.youtube.com/embed/AFtUpMTs4vI"
                   title='BMW M4 - "Ultimate Racetrack"'
-                  frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                   className="h-full w-full"
                 ></iframe>
               </Html>
-            )} */}
+            )}
           </mesh>
           <mesh
             name="tv001"

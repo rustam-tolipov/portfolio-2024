@@ -9,12 +9,14 @@ const Indicator = ({ type }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0, y: 100 }}
-      className="fixed bottom-0 z-20 flex w-full lg:w-fit items-center justify-center gap-2 rounded-lg border border-[#ffffff45] bg-[#333230] px-4 py-2 text-xs shadow-xl lg:bottom-4 lg:right-4 lg:text-lg"
+      className="fixed bottom-0 z-20 flex w-full items-center justify-center gap-2 rounded-lg border border-[#ffffff45] bg-[#333230] px-4 py-2 text-xs shadow-xl lg:bottom-4 lg:right-4 lg:w-fit lg:text-lg"
       style={{ backdropFilter: "blur(10px)" }}
     >
+      {type === "welcome" && <Select />}
       {type === "projects" && <Frames />}
       {type === "contact" && <Contact />}
       {type === "desktop" && <Desktop />}
+      {type === "tv" && <Desktop />}
       {type === "scroll" && <Scroll />}
     </motion.div>
   );
@@ -92,4 +94,8 @@ const Scroll = () => {
       Scroll to explore
     </>
   );
+};
+
+const Select = () => {
+  return <>To explore, please select a section from the navigation</>;
 };

@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { SPEED_FACTOR } from "../utils/constant";
+import { SPEED_FACTOR, isMobile } from "../utils/constant";
 
 const ProjectContext = createContext();
 
@@ -8,7 +8,6 @@ const ProjectProvider = ({ children }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isCurrent, setIsCurrent] = useState("welcome");
   const [isHovered, setIsHovered] = useState(false);
-  const [isCanvasLoaded, setIsCanvasLoaded] = useState(false);
 
   const onHover = (projectName) => {
     if (!isHovered) {
@@ -35,6 +34,38 @@ const ProjectProvider = ({ children }) => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (isCurrent === "desktop") {
+      setScrollPosition(9);
+    } else if (isCurrent === "projects") {
+      setScrollPosition(21);
+    } else if (isCurrent === "welcome") {
+      setScrollPosition(isMobile ? 0 : 6);
+    } else if (isCurrent === "tv") {
+      setScrollPosition(44);
+    } else if (isCurrent === "experience") {
+      setScrollPosition(55);
+    }
+  }, [isCurrent]);
+
+  useEffect(() => {
+    if (!isMobile) {
+      return;
+    }
+
+    if (scrollPosition > 20 && scrollPosition < 23) {
+      setIsCurrent("projects");
+    } else if (scrollPosition > 8 && scrollPosition < 9) {
+      setIsCurrent("desktop");
+    } else if (scrollPosition > 24 && scrollPosition < 44) {
+      setIsCurrent("tv");
+    } else if (scrollPosition > 54 && scrollPosition < 55) {
+      setIsCurrent("experience");
+    } else if (scrollPosition < 6) {
+      setIsCurrent("welcome");
+    }
+  }, [scrollPosition]);
+
   return (
     <ProjectContext.Provider
       value={{
@@ -46,8 +77,6 @@ const ProjectProvider = ({ children }) => {
         setIsCurrent,
         isHovered,
         onHover,
-        isCanvasLoaded,
-        setIsCanvasLoaded,
       }}
     >
       {children}

@@ -2,7 +2,14 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { ProjectContext } from "../context/ProjectContext";
-import { CiDesktop, CiGrid42, CiHome, CiYoutube } from "react-icons/ci";
+import {
+  CiDesktop,
+  CiGrid42,
+  CiHome,
+  CiYoutube,
+  CiMemoPad,
+} from "react-icons/ci";
+import { isMobile } from "../utils/constant";
 
 const Navigation = () => {
   const { isCurrent, setIsCurrent } = useContext(ProjectContext);
@@ -15,7 +22,12 @@ const Navigation = () => {
       exit={{ opacity: 0, y: 100 }}
       className="fixed right-4 top-0 z-20 flex h-screen flex-col justify-end gap-2 pb-24 lg:right-20 lg:justify-center lg:gap-8"
     >
-      <NavButton onClick={() => setIsCurrent("welcome")}>
+      <NavButton
+        onClick={() => {
+          setIsCurrent("welcome");
+          isMobile && window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+      >
         <CiHome className="text-xl text-gray-50 lg:text-2xl" />
       </NavButton>
       <NavButton onClick={() => setIsCurrent("desktop")}>
@@ -27,6 +39,11 @@ const Navigation = () => {
       <NavButton onClick={() => setIsCurrent("tv")}>
         <CiYoutube className="text-xl text-gray-50 lg:text-2xl" />
       </NavButton>
+      {isMobile && (
+        <NavButton onClick={() => setIsCurrent("experience")}>
+          <CiMemoPad className="text-xl text-gray-50 lg:text-2xl" />
+        </NavButton>
+      )}
     </motion.div>
   );
 };

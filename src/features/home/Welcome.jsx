@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ProjectContext } from "../../context/ProjectContext";
 import { ZERO, BLUR, END_OF_LANDING, isMobile } from "../../utils/constant";
+import { CiCircleChevDown } from "react-icons/ci";
 
 const Welcome = () => {
   const { scrollPosition } = useContext(ProjectContext);
@@ -63,23 +64,20 @@ const Welcome = () => {
         Hi, I&apos;m Rustam Tolipov
       </h1>
       <h2 className="z-20 text-lg font-thin text-gray-50 sm:text-4xl">&</h2>
-      <h2
-        style={{ backdropFilter: "blur(50px)" }}
-        className="z-20 rounded-lg border border-[#ffffff45] px-4 py-1 text-lg font-light text-gray-50 shadow-xl sm:text-4xl"
-      >
+      <h2 className="z-20 rounded-lg text-lg font-light text-gray-50 sm:text-4xl">
         Welcome to my portfolio
       </h2>
 
-      {/* <motion.div
-        className="absolute bottom-0 z-20"
+      <motion.div
+        className="absolute bottom-10 z-20 lg:bottom-4"
         animate={{
           y: [0, 10, 0],
           opacity: [1, 0.5, 1],
         }}
         transition={{ repeat: Infinity, duration: 2 }}
       >
-        <SlMouse className="text-7xl" />
-      </motion.div> */}
+        <CiCircleChevDown className="text-4xl lg:text-7xl" />
+      </motion.div>
     </div>
   );
 };

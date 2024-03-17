@@ -6,22 +6,6 @@ import { ProjectContext } from "../context/ProjectContext";
 import { isMobile } from "../utils/constant";
 
 const Model = () => {
-  const isMounted = useRef(false);
-
-  const { setIsCanvasLoaded } = useContext(ProjectContext);
-
-  useEffect(() => {
-    isMounted.current = true;
-
-    setTimeout(() => {
-      if (isMounted.current) {
-        setIsCanvasLoaded(true);
-      }
-    }, 500);
-
-    return () => (isMounted.current = false);
-  }, [setIsCanvasLoaded]);
-
   return (
     <Canvas
       onCreated={({ gl }) => {
