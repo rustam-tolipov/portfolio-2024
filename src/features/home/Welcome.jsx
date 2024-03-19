@@ -65,11 +65,11 @@ const Welcome = () => {
         ></motion.div>
       )}
 
-      <h1 className="z-20 text-2xl font-extrabold text-gray-50 sm:text-7xl">
+      <h1 className="z-20 text-2xl font-extrabold text-gray-50 md:text-5xl lg:text-7xl">
         Hi, I&apos;m Rustam Tolipov
       </h1>
       <h2 className="z-20 text-lg font-thin text-gray-50 sm:text-4xl">&</h2>
-      <h2 className="z-20 rounded-lg text-lg font-light text-gray-50 sm:text-4xl">
+      <h2 className="z-20 rounded-lg text-lg font-light text-gray-50 md:text-3xl lg:text-4xl">
         Welcome to my portfolio
       </h2>
 
