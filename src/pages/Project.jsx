@@ -33,15 +33,17 @@ const Project = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="heading flex h-[60dvh] w-full items-center justify-center drop-shadow-xl">
-        <h1 className="text-7xl font-bold tracking-wide">{title}</h1>
+      <div className="heading flex h-[50dvh] w-full items-center justify-center drop-shadow-xl lg:h-[60dvh]">
+        <h1 className="text-xl md:text-4xl font-bold tracking-wide lg:text-7xl">
+          {title}
+        </h1>
 
         <div className="absolute bottom-4 right-4 flex gap-4">
           {links.map((link) => (
             <a
               href={link.url}
               key={link.url}
-              className="rounded-lg border border-[#4242425c] bg-[#000000c3] px-4 py-1 text-xl shadow-xl transition-all duration-100"
+              className="rounded-lg border border-[#4242425c] bg-[#000000c3] px-4 py-1 text-md lg:text-xl shadow-xl transition-all duration-100"
             >
               {link.title}
             </a>
@@ -50,16 +52,16 @@ const Project = () => {
       </div>
 
       <div className="container flex flex-col gap-12 p-4 py-16">
-        <div className="flex items-end gap-4">
-          <h2 className="text-2xl uppercase">Stacks:</h2>
-          <ul className="flex flex-wrap gap-4 text-2xl font-thin">
+        <div className="flex gap-4 lg:items-end">
+          <h2 className="text-lg uppercase lg:text-2xl">Stacks:</h2>
+          <ul className="text-md flex flex-wrap gap-4 font-thin lg:text-2xl">
             {stacks.map((stack, index) => (
               <li key={index}>{stack}</li>
             ))}
           </ul>
         </div>
 
-        <div className="mt-20 flex flex-col items-center gap-28">
+        <div className="flex flex-col items-center gap-12 lg:mt-20 lg:gap-28">
           {images.map((image, index) => (
             <Reveal key={index}>
               <img
@@ -72,20 +74,20 @@ const Project = () => {
           ))}
         </div>
 
-        <footer className="flex h-[30dvh] flex-col items-center justify-end gap-12">
-          <h2 className="text-2xl uppercase">Connect with me</h2>
-          <div className="flex gap-10">
+        <footer className="flex lg:h-[30dvh] flex-col items-center justify-end gap-6 lg:gap-12">
+          <h2 className="text-lg uppercase lg:text-2xl">Connect with me</h2>
+          <div className="flex gap-5 lg:gap-10">
             <SocialLink href={GITHUB}>
-              <PiGithubLogoThin className="text-4xl" />
+              <PiGithubLogoThin className="text-2xl lg:text-4xl" />
             </SocialLink>
             <SocialLink href={LINKEDIN}>
-              <CiLinkedin className="text-4xl" />
+              <CiLinkedin className="text-2xl lg:text-4xl" />
             </SocialLink>
             <SocialLink href={EMAIL}>
-              <SiGmail className="text-4xl" />
+              <SiGmail className="text-2xl lg:text-4xl" />
             </SocialLink>
             <SocialLink href={INSTAGRAM}>
-              <CiInstagram className="text-4xl" />
+              <CiInstagram className="text-2xl lg:text-4xl" />
             </SocialLink>
           </div>
         </footer>
