@@ -66,7 +66,7 @@ export function Room({ controls, isCameraMoving }) {
 
   useEffect(
     () => void (actions.CameraActionMobile.reset().play().paused = true),
-    [],
+    [actions.CameraActionMobile],
   );
 
   const animateOnScroll = (item) => {
@@ -251,7 +251,7 @@ export function Room({ controls, isCameraMoving }) {
           />
 
           <Image
-            url={"public/images/desktop.jpeg"}
+            url={"/images/desktop.jpeg"}
             rotation={[Math.PI / 2, 0, 0]}
             position={[0, -0.003, 0]}
             scale={[0.685, 0.399, 1]}
@@ -653,7 +653,7 @@ export function Room({ controls, isCameraMoving }) {
             material={materials.mac_screen}
           />
           <Image
-            url={"public/images/wallpaper.jpeg"}
+            url={"/images/wallpaper.jpeg"}
             rotation={[Math.PI / 2, 0, 0]}
             position={[0, -0.003, 0.102]}
             scale={[0.285, 0.19, 1]}

@@ -10,13 +10,13 @@ body {
 }
 
 .loader {
-  background-image: url("/public/images/loading.jpeg");
+  background-image: url("/images/loading.jpeg");
   background-size: cover;
   background-position: center;
 }
 
 .heading {
-  background-image: url("/public/images/loading.jpeg");
+  background-image: url("/images/loading.jpeg");
   background-size: cover;
   background-position: center;
 }
@@ -44,7 +44,7 @@ body {
 }
 
 .desk-back {
-  background-image: url("/public/images/desktop.jpeg");
+  background-image: url("/images/desktop.jpeg");
   background-size: cover;
   background-position: end;
 }
