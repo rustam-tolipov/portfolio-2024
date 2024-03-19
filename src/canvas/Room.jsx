@@ -85,7 +85,7 @@ export function Room({ controls, isCameraMoving }) {
     <group ref={group} dispose={null}>
       <group name="Scene">
         <Frames nodes={nodes} materials={materials} />
-
+        <ExperienceFrame nodes={nodes} materials={materials} />
         <PerspectiveCamera
           name="CameraMobile"
           makeDefault={isMobile}
@@ -197,14 +197,6 @@ export function Room({ controls, isCameraMoving }) {
           material={materials.wall}
           position={[-0.256, 0.898, -0.15]}
         />
-        {/* <mesh
-          name="experience"
-          geometry={nodes.experience.geometry}
-          material={materials.project}
-          position={[0.773, 1.349, -1.121]}
-          rotation={[Math.PI / 2, -Math.PI / 2, 0]}
-        /> */}
-        <ExperienceFrame nodes={nodes} materials={materials} />
         <mesh
           name="laptop001"
           geometry={nodes.laptop001.geometry}
@@ -226,7 +218,7 @@ export function Room({ controls, isCameraMoving }) {
             name="Cube008_1"
             geometry={nodes.Cube008_1.geometry}
             material={materials.screen}
-            // position={[0, 0, -0.001]}
+            position={[0, 0, -0.001]}
           >
             {!isMobile && (
               <Html
@@ -486,12 +478,12 @@ export function Room({ controls, isCameraMoving }) {
             position={[0, 0, -0.014]}
             rotation={[Math.PI / 2, 1.285, 0]}
           />
-          {/* <mesh
+          <mesh
             name="Cube004_1"
-            geometry={nodes.Cube004_1.geometry}
+            geometry={nodes.Cube004.geometry}
             material={materials.screen}
             rotation={[0, 0, 1.285]}
-          /> */}
+          />
         </mesh>
         <mesh
           name="desk"
