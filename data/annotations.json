@@ -1,0 +1,69 @@
+[
+  {
+    "title": "welcome",
+    "description": "<p>Looking Down from Above</p>",
+    "position": {
+      "x": 4.462,
+      "y": 5.999,
+      "z": 5.392
+    },
+    "lookAt": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    }
+  },
+  {
+    "title": "desktop",
+    "description": "<p>Looking Down from Above</p>",
+    "position": {
+      "x": -0.544,
+      "y": 1.183,
+      "z": 1.472
+    },
+    "lookAt": {
+      "x": -0.539,
+      "y": 1.026,
+      "z": -0.944
+    }
+  },
+  {
+    "title": "projects",
+    "position": {
+      "x": 1,
+      "y": 1.5,
+      "z": 0
+    },
+    "lookAt": {
+      "x": -1.264,
+      "y": 1.3,
+      "z": -0.071
+    }
+  },
+  {
+    "title": "tv",
+    "position": {
+      "x": 1.1,
+      "y": 0.5,
+      "z": 1
+    },
+    "lookAt": {
+      "x": -1.215,
+      "y": 0.521,
+      "z": 0.859
+    }
+  },
+  {
+    "title": "experience",
+    "position": {
+      "x": 0.8,
+      "y": 1.4,
+      "z": 1.2
+    },
+    "lookAt": {
+      "x": 0.773,
+      "y": 1.349,
+      "z": -1.121
+    }
+  }
+]
