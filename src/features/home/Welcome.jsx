@@ -41,7 +41,12 @@ const Welcome = () => {
   };
 
   return (
-    <div className="z-10 flex h-screen w-full flex-col items-center justify-center gap-1 sm:gap-4">
+    <div
+      className="z-10 flex h-screen w-full flex-col items-center justify-center gap-1 overflow-hidden sm:gap-4"
+      onClick={() => {
+        window.scrollTo({ top: 1100, behavior: "smooth" });
+      }}
+    >
       <div
         className="absolute left-0 top-0 z-20 h-screen w-screen transition-all duration-100 ease-linear"
         style={{

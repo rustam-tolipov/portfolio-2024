@@ -42,3 +42,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.desk-back {
+  background-image: url("/public/images/desktop.jpeg");
+  background-size: cover;
+  background-position: end;
+}

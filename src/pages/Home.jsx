@@ -15,7 +15,7 @@ const Home = () => {
     <div className="relative h-screen w-screen">
       <Welcome />
 
-      {Array.from({ length: isMobile ? 13 : 1 }).map((_, index) => (
+      {Array.from({ length: isMobile ? 15 : 1 }).map((_, index) => (
         <section
           key={index}
           className="flex h-screen w-full snap-start items-center justify-center"

@@ -8,4 +8,13 @@ import selmart from "./projects/right-long.jpeg";
 import experience from "./experience/experience.jpeg";
 import experienceMobile from "./experience/experience-mobile.jpeg";
 
-export { rasmgaOl, budgetPlanner, socialAPI, handheld, diorMovers, selmart };
+export {
+  rasmgaOl,
+  budgetPlanner,
+  socialAPI,
+  handheld,
+  diorMovers,
+  selmart,
+  experience,
+  experienceMobile,
+};

@@ -2,6 +2,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import {
   Html,
+  Image,
   PerspectiveCamera,
   useAnimations,
   useGLTF,
@@ -15,6 +16,8 @@ import TWEEN from "@tweenjs/tween.js";
 import annotations from "../../data/annotations.json";
 
 import { DAMPING_FACTOR, SCROLL_SPEED, isMobile } from "../utils/constant";
+import ExperienceFrame from "./ExperienceFrame";
+import Desktop from "../ui/Desktop";
 
 export function Room({ controls, isCameraMoving }) {
   const group = useRef();
@@ -194,13 +197,14 @@ export function Room({ controls, isCameraMoving }) {
           material={materials.wall}
           position={[-0.256, 0.898, -0.15]}
         />
-        <mesh
+        {/* <mesh
           name="experience"
           geometry={nodes.experience.geometry}
           material={materials.project}
           position={[0.773, 1.349, -1.121]}
           rotation={[Math.PI / 2, -Math.PI / 2, 0]}
-        />
+        /> */}
+        <ExperienceFrame nodes={nodes} materials={materials} />
         <mesh
           name="laptop001"
           geometry={nodes.laptop001.geometry}
@@ -235,13 +239,7 @@ export function Room({ controls, isCameraMoving }) {
                   opacity: isCameraMoving ? 0 : 1,
                 }}
               >
-                <iframe
-                  src="https://www.youtube.com/embed/AFtUpMTs4vI"
-                  title='BMW M4 - "Ultimate Racetrack"'
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                  className="h-full w-full"
-                ></iframe>
+                <Desktop />
               </Html>
             )}
           </mesh>
@@ -258,6 +256,13 @@ export function Room({ controls, isCameraMoving }) {
             material={materials.desktop}
             position={[0, 0.024, -0.367]}
             rotation={[-Math.PI / 2, 0, 0]}
+          />
+
+          <Image
+            url={"public/images/desktop.jpeg"}
+            rotation={[Math.PI / 2, 0, 0]}
+            position={[0, -0.003, 0]}
+            scale={[0.685, 0.399, 1]}
           />
         </group>
         <mesh
@@ -380,27 +385,25 @@ export function Room({ controls, isCameraMoving }) {
             geometry={nodes.Cube101_1.geometry}
             material={materials.screen}
           >
-            {!isMobile && (
-              <Html
-                transform
-                occlude="blending"
-                className="tv"
-                scale={0.01}
-                position={[0, -0.004, 0]}
-                rotation={[Math.PI / 2, 0, 0]}
-                style={{
-                  opacity: isCameraMoving ? 0 : 1,
-                }}
-              >
-                <iframe
-                  src="https://www.youtube.com/embed/AFtUpMTs4vI"
-                  title='BMW M4 - "Ultimate Racetrack"'
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                  className="h-full w-full"
-                ></iframe>
-              </Html>
-            )}
+            <Html
+              transform
+              occlude="blending"
+              className="tv"
+              scale={0.01}
+              position={[0, -0.004, 0]}
+              rotation={[Math.PI / 2, 0, 0]}
+              style={{
+                opacity: isCameraMoving ? 0 : 1,
+              }}
+            >
+              <iframe
+                src="https://www.youtube.com/embed/AFtUpMTs4vI"
+                title='BMW M4 - "Ultimate Racetrack"'
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                className="h-full w-full"
+              ></iframe>
+            </Html>
           </mesh>
           <mesh
             name="tv001"
@@ -656,6 +659,12 @@ export function Room({ controls, isCameraMoving }) {
             name="Cube007_1"
             geometry={nodes.Cube007_1.geometry}
             material={materials.mac_screen}
+          />
+          <Image
+            url={"public/images/wallpaper.jpeg"}
+            rotation={[Math.PI / 2, 0, 0]}
+            position={[0, -0.003, 0.102]}
+            scale={[0.285, 0.19, 1]}
           />
         </group>
         <mesh
