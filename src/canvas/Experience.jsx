@@ -22,12 +22,12 @@ const Experience = () => {
         <OrbitControls
           ref={ref}
           target={[0, 1, 0]}
-          panSpeed={0.5}
-          rotateSpeed={0.5}
-          minAzimuthAngle={-Math.PI / 11}
-          maxAzimuthAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 4}
-          maxPolarAngle={Math.PI / 1.9}
+          panSpeed={0.1}
+          rotateSpeed={0.1}
+          // minAzimuthAngle={-Math.PI / 11}
+          // maxAzimuthAngle={Math.PI / 2}
+          // minPolarAngle={Math.PI / 4}
+          // maxPolarAngle={Math.PI / 1.9}
           enableZoom={false}
           enableDamping
           dampingFactor={0.1}

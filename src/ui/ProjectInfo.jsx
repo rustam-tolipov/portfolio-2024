@@ -43,10 +43,10 @@ const projects_list = [
 const ProjectInfo = ({ isHovered }) => {
   return (
     <div
-      className="fixed bottom-4 right-4 z-20 flex max-w-[80dvw] items-center gap-2 rounded-lg border border-[#4242425c] bg-[#000000c3] p-4 shadow-xl transition-all duration-100 lg:min-w-[30dvw]"
+      className="absolute bottom-4 right-4 z-20 flex max-w-[80dvw] items-center gap-2 rounded-lg border border-[#4242425c] bg-[#333230] p-4 shadow-xl transition-all duration-100 lg:min-w-[30dvw]"
       style={{ backdropFilter: "blur(50px)" }}
     >
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 text-gray-100">
         {projects_list.map((project) => {
           if (project.id == isHovered) {
             return (
@@ -54,9 +54,7 @@ const ProjectInfo = ({ isHovered }) => {
                 <h2 className="text-lg font-bold drop-shadow-lg lg:text-3xl">
                   {project.title}
                 </h2>
-                <p className="text-sm text-gray-100 drop-shadow-lg">
-                  {project.description}
-                </p>
+                <p className="text-sm drop-shadow-lg">{project.description}</p>
               </React.Fragment>
             );
           }

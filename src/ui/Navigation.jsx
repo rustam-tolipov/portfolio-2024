@@ -15,12 +15,12 @@ const Navigation = () => {
   const { isCurrent, setIsCurrent } = useContext(ProjectContext);
 
   return (
-    <motion.div
+    <div
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0, y: 100 }}
-      className="fixed right-4 top-0 z-20 flex h-screen flex-col justify-end gap-2 pb-24 lg:right-20 lg:justify-center lg:gap-8"
+      className={`right-4 top-0 z-20 flex h-[100dvh] flex-col justify-end gap-2 pb-24 lg:right-20 lg:justify-center lg:gap-8 ${isMobile ? "fixed" : "absolute"}`}
     >
       <NavButton
         onClick={() => {
@@ -67,7 +67,7 @@ const Navigation = () => {
       >
         <CiMemoPad className="text-xl text-gray-50 lg:text-2xl" />
       </NavButton>
-    </motion.div>
+    </div>
   );
 };
 
@@ -77,11 +77,7 @@ const NavButton = ({ children, onClick, isActive }) => {
   return (
     <motion.button
       className="flex h-10 w-10 items-center justify-center gap-2 rounded-lg border border-[#ffffff45] bg-[#33323000] shadow-xl lg:h-12 lg:w-12"
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
       style={{
-        backdropFilter: "blur(10px)",
-        WebkitBackdropFilter: "blur(10px)",
         boxShadow: isActive ? "0 0 0 2px #ffffff" : "none",
       }}
       onClick={onClick}

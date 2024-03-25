@@ -12,29 +12,33 @@ const Home = () => {
   const { isCurrent, isHovered, scrollPosition } = useContext(ProjectContext);
 
   return (
-    <div className="relative h-screen w-screen">
+    <div className="relative h-[100dvh] w-[100dvw]">
       <Welcome />
 
-      {Array.from({ length: isMobile ? 15 : 1 }).map((_, index) => (
+      {Array.from({ length: isMobile ? 30 : 1 }).map((_, index) => (
         <section
           key={index}
-          className="flex h-screen w-full snap-start items-center justify-center"
-        ></section>
+          className="relative flex h-screen w-full snap-start items-center justify-center"
+        >
+          {!isMobile && (
+            <>
+              {!isHovered && <Indicator type={isCurrent} />}
+              <SocialLinks />
+              <Navigation />
+
+              {isHovered && isCurrent === "projects" && (
+                <ProjectInfo isHovered={isHovered} />
+              )}
+            </>
+          )}
+        </section>
       ))}
 
-      {isCurrent && !isHovered && !isMobile && scrollPosition > 5 && (
-        <Indicator type={isCurrent} />
-      )}
-      {isHovered &&
-        isCurrent === "projects" &&
-        scrollPosition > 5 &&
-        !isMobile && <ProjectInfo isHovered={isHovered} />}
-
-      {scrollPosition > 5 && (
+      {isMobile && scrollPosition > 5 && (
         <>
           <SocialLinks />
-          <Navigation />
-          <IndicatorMobile isCurrent={isCurrent} />
+          <IndicatorMobile type={isCurrent} />
+          {/* <Navigation /> */}
         </>
       )}
     </div>

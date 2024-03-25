@@ -42,9 +42,9 @@ const Welcome = () => {
 
   return (
     <div
-      className="z-10 flex h-screen w-full flex-col items-center justify-center gap-1 overflow-hidden sm:gap-4"
+      className="z-10 flex h-[100dvh] w-full flex-col items-center justify-center gap-1 overflow-hidden sm:gap-4"
       onClick={() => {
-        window.scrollTo({ top: 1100, behavior: "smooth" });
+        window.scrollTo({ top: 1800, behavior: "smooth" });
       }}
     >
       <div
@@ -73,8 +73,8 @@ const Welcome = () => {
         Welcome to my portfolio
       </h2>
 
-      <motion.div
-        className="absolute bottom-10 z-20 lg:bottom-4"
+      <div
+        className="absolute bottom-10 z-20 animate-pulse text-gray-50 lg:bottom-4"
         animate={{
           y: [0, 10, 0],
           opacity: [1, 0.5, 1],
@@ -82,7 +82,7 @@ const Welcome = () => {
         transition={{ repeat: Infinity, duration: 2 }}
       >
         <CiCircleChevDown className="text-4xl lg:text-7xl" />
-      </motion.div>
+      </div>
     </div>
   );
 };

@@ -27,7 +27,7 @@ const ProjectProvider = ({ children }) => {
 
   useEffect(() => {
     const onScroll = () => setScrollPosition(window.scrollY * SPEED_FACTOR);
-    // clean up code
+
     window.removeEventListener("scroll", onScroll);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);

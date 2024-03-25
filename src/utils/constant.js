@@ -2,7 +2,7 @@ const ZERO = 0;
 const BLUR = 40;
 const END_OF_LANDING = 10;
 
-const SPEED_FACTOR = 0.01;
+const SPEED_FACTOR = 0.005;
 const DAMPING_FACTOR = 0.05;
 const SCROLL_SPEED = 0.01;
 const FREQUENCY = 60;

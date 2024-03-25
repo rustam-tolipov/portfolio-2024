@@ -32,9 +32,9 @@ const Project = () => {
   const { title, links, stacks, images } = project;
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center text-gray-50">
       <div className="heading flex h-[50dvh] w-full items-center justify-center drop-shadow-xl lg:h-[60dvh]">
-        <h1 className="text-xl md:text-4xl font-bold tracking-wide lg:text-7xl">
+        <h1 className="text-xl font-bold tracking-wide md:text-4xl lg:text-7xl">
           {title}
         </h1>
 
@@ -43,7 +43,7 @@ const Project = () => {
             <a
               href={link.url}
               key={link.url}
-              className="rounded-lg border border-[#4242425c] bg-[#000000c3] px-4 py-1 text-md lg:text-xl shadow-xl transition-all duration-100"
+              className="text-md rounded-lg border border-[#4242425c] bg-[#000000c3] px-4 py-1 shadow-xl transition-all duration-100 lg:text-xl"
             >
               {link.title}
             </a>
@@ -74,7 +74,7 @@ const Project = () => {
           ))}
         </div>
 
-        <footer className="flex lg:h-[30dvh] flex-col items-center justify-end gap-6 lg:gap-12">
+        <footer className="flex flex-col items-center justify-end gap-6 lg:h-[30dvh] lg:gap-12">
           <h2 className="text-lg uppercase lg:text-2xl">Connect with me</h2>
           <div className="flex gap-5 lg:gap-10">
             <SocialLink href={GITHUB}>
