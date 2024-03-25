@@ -1,8 +1,6 @@
-/* eslint-disable react/no-unknown-property */
 import React, { useContext, useEffect, useRef } from "react";
 import {
   Html,
-  Image,
   PerspectiveCamera,
   useAnimations,
   useGLTF,
@@ -10,7 +8,6 @@ import {
 import { useFrame, useThree } from "@react-three/fiber";
 
 import { ProjectContext } from "../context/ProjectContext";
-import Frames from "./Frames";
 
 import TWEEN from "@tweenjs/tween.js";
 import annotations from "../../data/annotations.json";
@@ -18,6 +15,7 @@ import annotations from "../../data/annotations.json";
 import { DAMPING_FACTOR, SCROLL_SPEED, isMobile } from "../utils/constant";
 import ExperienceFrame from "./ExperienceFrame";
 import Electronics from "./Electronics";
+import Frames from "./Frames";
 
 export function Room({ controls, isCameraMoving }) {
   const group = useRef();

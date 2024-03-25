@@ -4,7 +4,7 @@ import SocialLinks from "../ui/SocialLinks";
 import Navigation from "../ui/Navigation";
 import { ProjectContext } from "../context/ProjectContext";
 import Indicator from "../ui/Indicator";
-import { isMobile } from "../utils/constant";
+import { PROJECTS_SECTION, isMobile } from "../utils/constant";
 import IndicatorMobile from "../ui/IndicatorMobile";
 import ProjectInfo from "../ui/ProjectInfo";
 
@@ -26,7 +26,7 @@ const Home = () => {
               <SocialLinks />
               <Navigation />
 
-              {isHovered && isCurrent === "projects" && (
+              {isHovered && isCurrent === PROJECTS_SECTION && (
                 <ProjectInfo isHovered={isHovered} />
               )}
             </>
@@ -38,7 +38,6 @@ const Home = () => {
         <>
           <SocialLinks />
           <IndicatorMobile type={isCurrent} />
-          {/* <Navigation /> */}
         </>
       )}
     </div>

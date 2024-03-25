@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unknown-property */
 import React from "react";
 import { Image } from "@react-three/drei";
 

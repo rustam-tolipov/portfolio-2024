@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unknown-property */
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { ProjectContext } from "../context/ProjectContext";
@@ -9,64 +8,56 @@ import {
   CiYoutube,
   CiMemoPad,
 } from "react-icons/ci";
-import { isMobile } from "../utils/constant";
+import {
+  WELCOME_SECTION,
+  DESKTOP_SECTION,
+  PROJECTS_SECTION,
+  TV_SECTION,
+  EXPERIENCE_SECTION,
+  isMobile,
+} from "../utils/constant";
+
+const navigations = [
+  {
+    name: WELCOME_SECTION,
+    icon: <CiHome className="text-xl text-gray-50 lg:text-2xl" />,
+  },
+  {
+    name: DESKTOP_SECTION,
+    icon: <CiDesktop className="text-xl text-gray-50 lg:text-2xl" />,
+  },
+  {
+    name: PROJECTS_SECTION,
+    icon: <CiGrid42 className="text-xl text-gray-50 lg:text-2xl" />,
+  },
+  {
+    name: TV_SECTION,
+    icon: <CiYoutube className="text-xl text-gray-50 lg:text-2xl" />,
+  },
+  {
+    name: EXPERIENCE_SECTION,
+    icon: <CiMemoPad className="text-xl text-gray-50 lg:text-2xl" />,
+  },
+];
 
 const Navigation = () => {
   const { isCurrent, setIsCurrent } = useContext(ProjectContext);
 
   return (
     <div
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      exit={{ opacity: 0, y: 100 }}
       className={`right-4 top-0 z-20 flex h-[100dvh] flex-col justify-end gap-2 pb-24 lg:right-20 lg:justify-center lg:gap-8 ${isMobile ? "fixed" : "absolute"}`}
     >
-      <NavButton
-        onClick={() => {
-          setIsCurrent("welcome");
-          isMobile && window.scrollTo({ top: 0, behavior: "smooth" });
-        }}
-        isActive={isCurrent === "welcome"}
-      >
-        <CiHome className="text-xl text-gray-50 lg:text-2xl" />
-      </NavButton>
-      <NavButton
-        onClick={() => {
-          setIsCurrent("desktop");
-          isMobile && window.scrollTo({ top: 1100 });
-        }}
-        isActive={isCurrent === "desktop"}
-      >
-        <CiDesktop className="text-xl text-gray-50 lg:text-2xl" />
-      </NavButton>
-      <NavButton
-        onClick={() => {
-          setIsCurrent("projects");
-          isMobile && window.scrollTo({ top: 2400 });
-        }}
-        isActive={isCurrent === "projects"}
-      >
-        <CiGrid42 className="text-xl text-gray-50 lg:text-2xl" />
-      </NavButton>
-      <NavButton
-        onClick={() => {
-          setIsCurrent("tv");
-          isMobile && window.scrollTo({ top: 5100 });
-        }}
-        isActive={isCurrent === "tv"}
-      >
-        <CiYoutube className="text-xl text-gray-50 lg:text-2xl" />
-      </NavButton>
-      <NavButton
-        onClick={() => {
-          setIsCurrent("experience");
-          isMobile && window.scrollTo({ top: 6400 });
-        }}
-        isActive={isCurrent === "experience"}
-      >
-        <CiMemoPad className="text-xl text-gray-50 lg:text-2xl" />
-      </NavButton>
+      {navigations.map((navigation) => (
+        <NavButton
+          key={navigation.name}
+          onClick={() => {
+            setIsCurrent(navigation.name);
+          }}
+          isActive={isCurrent === navigation.name}
+        >
+          {navigation.icon}
+        </NavButton>
+      ))}
     </div>
   );
 };

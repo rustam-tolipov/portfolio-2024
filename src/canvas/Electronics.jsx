@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unknown-property */
 import React from "react";
 import { Html, Image } from "@react-three/drei";
 import Desktop from "../ui/Desktop";
@@ -114,8 +113,8 @@ const Electronics = ({ nodes, materials, Html, isCameraMoving }) => {
               <iframe
                 src="https://www.youtube.com/embed/AFtUpMTs4vI"
                 title='BMW M4 - "Ultimate Racetrack"'
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
                 className="h-full w-full"
               ></iframe>
             </Html>

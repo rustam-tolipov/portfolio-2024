@@ -17,6 +17,24 @@ const INSTAGRAM = "https://www.instagram.com/rustamtolipov_/";
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
+const PROJECTS_SECTION = "projects";
+const TV_SECTION = "tv";
+const EXPERIENCE_SECTION = "experience";
+const WELCOME_SECTION = "welcome";
+const DESKTOP_SECTION = "desktop";
+const CONTACT_SECTION = "contact";
+const SCROLLABLE_SECTION = "scroll";
+
+const BASE_URL = window.location.origin;
+
+const positions = [
+  { name: "desktop", start: 10, end: 14 },
+  { name: "projects", start: 23, end: 28 },
+  { name: "tv", start: 50, end: 54 },
+  { name: "experience", start: 63, end: 84 },
+  { name: "welcome", start: 0, end: 6 },
+];
+
 export {
   ZERO,
   BLUR,
@@ -32,5 +50,14 @@ export {
   LINKEDIN,
   EMAIL,
   INSTAGRAM,
+  BASE_URL,
   isMobile,
+  positions,
+  PROJECTS_SECTION,
+  TV_SECTION,
+  EXPERIENCE_SECTION,
+  WELCOME_SECTION,
+  DESKTOP_SECTION,
+  CONTACT_SECTION,
+  SCROLLABLE_SECTION,
 };

@@ -1,6 +1,7 @@
-/* eslint-disable react/no-unknown-property */
-import React, { useContext, useRef } from "react";
+import { useContext } from "react";
 import { Image } from "@react-three/drei";
+
+import { ProjectContext } from "../context/ProjectContext.jsx";
 
 import {
   rasmgaOl,
@@ -10,19 +11,10 @@ import {
   diorMovers,
   selmart,
 } from "../assets/index.js";
-import { ProjectContext } from "../context/ProjectContext.jsx";
-
-const BASE_URL = window.location.origin;
+import { BASE_URL } from "../utils/constant.js";
 
 const Frames = ({ nodes, materials }) => {
   const { onHover } = useContext(ProjectContext);
-
-  const projectRef = useRef();
-  const project1Ref = useRef();
-  const project2Ref = useRef();
-  const project3Ref = useRef();
-  const project4Ref = useRef();
-  const project5Ref = useRef();
 
   return (
     <>
@@ -34,7 +26,6 @@ const Frames = ({ nodes, materials }) => {
         rotation={[0, 0, -Math.PI / 2]}
         onPointerOver={() => onHover("project1")}
         onPointerOut={() => onHover(false)}
-        ref={projectRef}
         onClick={() => window.open(`${BASE_URL}/rasmga_ol`, "_blank")}
       >
         <Image
@@ -52,7 +43,6 @@ const Frames = ({ nodes, materials }) => {
         rotation={[0, 0, -Math.PI / 2]}
         onPointerOver={() => onHover("project2")}
         onPointerOut={() => onHover(false)}
-        ref={project1Ref}
         onClick={() =>
           window.open(`${BASE_URL}/personal-budget-planner-v2`, "_blank")
         }
@@ -72,7 +62,6 @@ const Frames = ({ nodes, materials }) => {
         rotation={[0, 0, -Math.PI / 2]}
         onPointerOver={() => onHover("project3")}
         onPointerOut={() => onHover(false)}
-        ref={project2Ref}
         onClick={() => window.open(`${BASE_URL}/premium-pencils`, "_blank")}
       >
         <Image
@@ -90,7 +79,6 @@ const Frames = ({ nodes, materials }) => {
         rotation={[0, 0, -Math.PI / 2]}
         onPointerOver={() => onHover("project4")}
         onPointerOut={() => onHover(false)}
-        ref={project3Ref}
         onClick={() => window.open(`${BASE_URL}/selmart`, "_blank")}
       >
         <Image
@@ -108,7 +96,6 @@ const Frames = ({ nodes, materials }) => {
         rotation={[0, 0, -Math.PI / 2]}
         onPointerOver={() => onHover("project5")}
         onPointerOut={() => onHover(false)}
-        ref={project4Ref}
         onClick={() => window.open(`${BASE_URL}/best-dental-clinic`, "_blank")}
       >
         <Image
@@ -126,7 +113,6 @@ const Frames = ({ nodes, materials }) => {
         rotation={[0, 0, -Math.PI / 2]}
         onPointerOver={() => onHover("project6")}
         onPointerOut={() => onHover(false)}
-        ref={project5Ref}
         onClick={() => window.open(`${BASE_URL}/handheld`, "_blank")}
       >
         <Image

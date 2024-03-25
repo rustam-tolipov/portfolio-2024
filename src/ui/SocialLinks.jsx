@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { CiLinkedin } from "react-icons/ci";
 import { PiGithubLogoThin } from "react-icons/pi";
 import { SiGmail } from "react-icons/si";
@@ -12,29 +11,37 @@ import {
   isMobile,
 } from "../utils/constant";
 
+const links = [
+  {
+    href: GITHUB,
+    icon: <PiGithubLogoThin className="text-xl lg:text-2xl" />,
+  },
+  {
+    href: LINKEDIN,
+    icon: <CiLinkedin className="text-xl lg:text-2xl" />,
+  },
+  {
+    href: EMAIL,
+    icon: <SiGmail className="text-xl lg:text-2xl" />,
+  },
+  {
+    href: INSTAGRAM,
+    icon: <CiInstagram className="text-xl lg:text-2xl" />,
+  },
+];
+
 const SocialLinks = () => {
   return (
     <div
-      initial={{ opacity: 0, x: -100 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5 }}
-      exit={{ opacity: 0, x: -100 }}
       className={`left-2 top-1/2 z-20 flex flex-col items-center gap-2 text-gray-50 lg:bottom-4 lg:left-4 ${
         isMobile ? "fixed" : "absolute"
       }`}
     >
-      <SocialLink href={GITHUB}>
-        <PiGithubLogoThin className="text-xl lg:text-2xl" />
-      </SocialLink>
-      <SocialLink href={LINKEDIN}>
-        <CiLinkedin className="text-xl lg:text-2xl" />
-      </SocialLink>
-      <SocialLink href={EMAIL}>
-        <SiGmail className="text-xl lg:text-2xl" />
-      </SocialLink>
-      <SocialLink href={INSTAGRAM}>
-        <CiInstagram className="text-xl lg:text-2xl" />
-      </SocialLink>
+      {links.map((link) => (
+        <SocialLink key={link.href} href={link.href}>
+          {link.icon}
+        </SocialLink>
+      ))}
     </div>
   );
 };

@@ -17,12 +17,12 @@ function App() {
     ReactGA.send(window.location.pathname + window.location.search);
   };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", pageView);
-  //   return () => {
-  //     window.removeEventListener("scroll", pageView);
-  //   };
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", pageView);
+    return () => {
+      window.removeEventListener("scroll", pageView);
+    };
+  }, []);
 
   return (
     <ProjectProvider>

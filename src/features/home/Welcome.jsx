@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { CiCircleChevDown } from "react-icons/ci";
+
 import { ProjectContext } from "../../context/ProjectContext";
 import { ZERO, BLUR, END_OF_LANDING, isMobile } from "../../utils/constant";
-import { CiCircleChevDown } from "react-icons/ci";
 
 const Welcome = () => {
   const { scrollPosition } = useContext(ProjectContext);
-
   const [mousePosition, setMousePosition] = useState({ x: ZERO, y: ZERO });
 
   const handleMouseMove = (e) => {
@@ -47,15 +47,25 @@ const Welcome = () => {
         window.scrollTo({ top: 1800, behavior: "smooth" });
       }}
     >
-      <div
-        className="absolute left-0 top-0 z-20 h-screen w-screen transition-all duration-100 ease-linear"
-        style={{
-          backdropFilter: `blur(${scrollPosition < END_OF_LANDING ? BLUR : ZERO}px)`,
-          WebkitBackdropFilter: `blur(${scrollPosition < END_OF_LANDING ? BLUR : ZERO}px)`,
-          maskImage: `radial-gradient(150px at ${mousePosition.x}px ${mousePosition.y}px, transparent 100%, black 100%)`,
-          WebkitMaskImage: `radial-gradient(150px at ${mousePosition.x}px ${mousePosition.y}px, transparent 100%, black 100%)`,
-        }}
-      ></div>
+      {!isMobile ? (
+        <div
+          className="absolute left-0 top-0 z-20 h-screen w-screen transition-all duration-100 ease-linear"
+          style={{
+            backdropFilter: `blur(${scrollPosition < END_OF_LANDING ? BLUR : ZERO}px)`,
+            WebkitBackdropFilter: `blur(${scrollPosition < END_OF_LANDING ? BLUR : ZERO}px)`,
+            maskImage: `radial-gradient(150px at ${mousePosition.x}px ${mousePosition.y}px, transparent 100%, black 100%)`,
+            WebkitMaskImage: `radial-gradient(150px at ${mousePosition.x}px ${mousePosition.y}px, transparent 100%, black 100%)`,
+          }}
+        ></div>
+      ) : (
+        <div
+          className="absolute left-0 top-0 z-20 h-screen w-screen transition-all duration-100 ease-linear"
+          style={{
+            backdropFilter: `blur(${scrollPosition < END_OF_LANDING ? BLUR : ZERO}px)`,
+            WebkitBackdropFilter: `blur(${scrollPosition < END_OF_LANDING ? BLUR : ZERO}px)`,
+          }}
+        ></div>
+      )}
 
       {!isMobile && mousePosition.x > ZERO && (
         <motion.div
@@ -73,14 +83,7 @@ const Welcome = () => {
         Welcome to my portfolio
       </h2>
 
-      <div
-        className="absolute bottom-10 z-20 animate-pulse text-gray-50 lg:bottom-4"
-        animate={{
-          y: [0, 10, 0],
-          opacity: [1, 0.5, 1],
-        }}
-        transition={{ repeat: Infinity, duration: 2 }}
-      >
+      <div className="absolute bottom-10 z-20 animate-pulse text-gray-50 lg:bottom-4">
         <CiCircleChevDown className="text-4xl lg:text-7xl" />
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { SPEED_FACTOR, isMobile } from "../utils/constant";
+import { SPEED_FACTOR, isMobile, positions } from "../utils/constant";
 
 const ProjectContext = createContext();
 
@@ -34,32 +34,12 @@ const ProjectProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    const scrollPositions = {
-      desktop: 10,
-      projects: 23,
-      welcome: isMobile ? 0 : 6,
-      tv: 50,
-      experience: 63,
-    };
-
-    if (Object.prototype.hasOwnProperty.call(scrollPositions, isCurrent)) {
-      setScrollPosition(scrollPositions[isCurrent]);
-    }
-  }, [isCurrent]);
-
-  useEffect(() => {
     if (isMobile) {
-      if (scrollPosition > 23 && scrollPosition < 28) {
-        setIsCurrent("projects");
-      } else if (scrollPosition > 10 && scrollPosition < 14) {
-        setIsCurrent("desktop");
-      } else if (scrollPosition > 50 && scrollPosition < 54) {
-        setIsCurrent("tv");
-      } else if (scrollPosition > 63 && scrollPosition < 84) {
-        setIsCurrent("experience");
-      } else if (scrollPosition < 6) {
-        setIsCurrent("welcome");
-      }
+      positions.forEach((position) => {
+        if (scrollPosition > position.start && scrollPosition < position.end) {
+          setIsCurrent(position.name);
+        }
+      });
     }
   }, [scrollPosition]);
 
