@@ -17,6 +17,7 @@
     "@tweenjs/tween.js": "^23.1.1",
     "@types/three": "^0.162.0",
     "axios": "^1.6.7",
+    "caniuse-lite": "^1.0.30001669",
     "date-fns": "^3.3.1",
     "framer-motion": "^11.0.5",
     "js-cookie": "^3.0.5",

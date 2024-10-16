@@ -4,6 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+body::-webkit-scrollbar-thumb {
+  background: #ff0000;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   user-select: none;
