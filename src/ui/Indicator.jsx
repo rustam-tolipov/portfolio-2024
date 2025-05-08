@@ -1,7 +1,6 @@
 import { FaMousePointer } from "react-icons/fa";
 import {
   DESKTOP_SECTION,
-  EXPERIENCE_SECTION,
   PROJECTS_SECTION,
   SCROLLABLE_SECTION,
   TV_SECTION,
@@ -19,11 +18,6 @@ const sections = [
     icon: <FaMousePointer />,
     text: "Mouse over the projects and click to learn more",
   },
-  {
-    name: EXPERIENCE_SECTION,
-    icon: <FaMousePointer />,
-    text: "Hold and drag to explore",
-  },
   { name: DESKTOP_SECTION, icon: <FaMousePointer />, text: "Click to explore" },
   { name: TV_SECTION, icon: <FaMousePointer />, text: "Click to explore" },
   {
@@ -34,8 +28,6 @@ const sections = [
 ];
 
 const Indicator = ({ type }) => {
-  console.log(type);
-
   return (
     <div
       className="absolute bottom-0 z-20 flex w-full items-center justify-center gap-2 rounded-lg border border-[#ffffff45] bg-[#333230] px-4 py-2 text-xs text-gray-50 shadow-xl md:bottom-4 md:right-4 md:w-fit md:text-lg"

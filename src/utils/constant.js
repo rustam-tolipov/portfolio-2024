@@ -13,7 +13,7 @@ const MOUSE_SPEED = 0.05;
 const GITHUB = "https://github.com/rustam-tolipov";
 const LINKEDIN = "https://www.linkedin.com/in/rustam-tolipov/";
 const EMAIL = "mailto:rustamxontolipov788@gmail.com";
-const INSTAGRAM = "https://www.instagram.com/rustamtolipov_/";
+const INSTAGRAM = "https://x.com/rustamtolipov_";
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 

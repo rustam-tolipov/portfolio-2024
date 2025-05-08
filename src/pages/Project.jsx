@@ -4,10 +4,8 @@ import { projects } from "../../data/projects.json";
 import { useParams } from "react-router-dom";
 import Reveal from "../ui/Reveal";
 
-import { CiLinkedin } from "react-icons/ci";
+import { CiLinkedin, CiMail, CiTwitter } from "react-icons/ci";
 import { PiGithubLogoThin } from "react-icons/pi";
-import { SiGmail } from "react-icons/si";
-import { CiInstagram } from "react-icons/ci";
 
 import { GITHUB, LINKEDIN, EMAIL, INSTAGRAM } from "../utils/constant";
 
@@ -84,10 +82,10 @@ const Project = () => {
               <CiLinkedin className="text-2xl lg:text-4xl" />
             </SocialLink>
             <SocialLink href={EMAIL}>
-              <SiGmail className="text-2xl lg:text-4xl" />
+              <CiMail className="text-2xl lg:text-4xl" />
             </SocialLink>
             <SocialLink href={INSTAGRAM}>
-              <CiInstagram className="text-2xl lg:text-4xl" />
+              <CiTwitter className="text-2xl lg:text-4xl" />
             </SocialLink>
           </div>
         </footer>

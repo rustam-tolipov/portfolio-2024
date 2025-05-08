@@ -1,5 +1,5 @@
 import React from "react";
-import { CiLinkedin } from "react-icons/ci";
+import { CiLinkedin, CiMail, CiTwitter } from "react-icons/ci";
 import { PiGithubLogoThin } from "react-icons/pi";
 import { SiGmail } from "react-icons/si";
 import { CiInstagram } from "react-icons/ci";
@@ -22,11 +22,11 @@ const links = [
   },
   {
     href: EMAIL,
-    icon: <SiGmail className="text-xl lg:text-2xl" />,
+    icon: <CiMail className="text-xl lg:text-2xl" />,
   },
   {
     href: INSTAGRAM,
-    icon: <CiInstagram className="text-xl lg:text-2xl" />,
+    icon: <CiTwitter className="text-xl lg:text-2xl" />,
   },
 ];
 

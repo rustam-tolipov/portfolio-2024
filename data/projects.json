@@ -20,12 +20,6 @@
           }
         },
         {
-          "id": 2,
-          "link": {
-            "url": "https://res.cloudinary.com/dhatgaadw/image/upload/v1708574275/ucfjcatd9oolqod1gxqj.jpg"
-          }
-        },
-        {
           "id": 3,
           "link": {
             "url": "https://res.cloudinary.com/dhatgaadw/image/upload/v1708574275/ucfjcatd9oolqod1gxqj.jpg"
@@ -56,45 +50,57 @@
     },
     {
       "id": 2,
-      "title": "Premium Pencils Three JS",
-      "link": "premium-pencils",
+      "title": "Dior Movers",
+      "link": "dior-movers",
       "links": [
         {
-          "id": 2,
-          "url": "https://premium-pencils.netlify.app/",
-          "title": "Live",
+          "id": 3,
+          "url": "https://github.com/rustam-tolipov/dior-movers-client",
+          "title": "Github",
           "project_id": 2
         },
         {
           "id": 3,
-          "url": "https://github.com/rustam-tolipov/pencils-three_js",
-          "title": "Github",
+          "url": "https://dior-movers-client.vercel.app",
+          "title": "Live",
           "project_id": 2
         }
       ],
       "images": [
         {
+          "id": 1,
+          "link": {
+            "url": "https://github.com/rustam-tolipov/portfolio-2024/blob/main/src/assets/projects/dm1.jpeg?raw=true"
+          }
+        },
+        {
+          "id": 2,
+          "link": {
+            "url": "https://github.com/rustam-tolipov/portfolio-2024/blob/main/src/assets/projects/dm2.jpeg?raw=true"
+          }
+        },
+        {
+          "id": 3,
+          "link": {
+            "url": "https://github.com/rustam-tolipov/portfolio-2024/blob/main/src/assets/projects/dm3.jpeg?raw=true"
+          }
+        },
+        {
+          "id": 4,
+          "link": {
+            "url": "https://github.com/rustam-tolipov/portfolio-2024/blob/main/src/assets/projects/dm4.jpeg?raw=true"
+          }
+        },
+        {
           "id": 5,
           "link": {
-            "url": "https://res.cloudinary.com/dhatgaadw/image/upload/v1708574874/oyzxil51cczqplv7r7px.jpg"
+            "url": "https://github.com/rustam-tolipov/portfolio-2024/blob/main/src/assets/projects/dm5.jpeg?raw=true"
           }
         },
         {
           "id": 6,
           "link": {
-            "url": "https://res.cloudinary.com/dhatgaadw/image/upload/v1708574917/d4gkveudupjtzvcplnsg.jpg"
-          }
-        },
-        {
-          "id": 7,
-          "link": {
-            "url": "https://res.cloudinary.com/dhatgaadw/image/upload/v1708574923/benmnaymnpft8rltigug.jpg"
-          }
-        },
-        {
-          "id": 8,
-          "link": {
-            "url": "https://res.cloudinary.com/dhatgaadw/image/upload/v1708574923/benmnaymnpft8rltigug.jpg"
+            "url": "https://github.com/rustam-tolipov/portfolio-2024/blob/main/src/assets/projects/dm6.jpeg?raw=true"
           }
         }
       ],
@@ -115,8 +121,14 @@
       "links": [
         {
           "id": 3,
-          "url": "https://rasmgaol.vercel.app/",
-          "title": "Live",
+          "url": "https://github.com/rustam-tolipov/rasmga-ol",
+          "title": "Github",
+          "project_id": 3
+        },
+        {
+          "id": 3,
+          "url": "https://github.com/rustam-tolipov/rasmga-ol",
+          "title": "Under Construction",
           "project_id": 3
         }
       ],
@@ -163,7 +175,13 @@
       "links": [
         {
           "id": 4,
-          "url": "https://handheld-pi.vercel.app/",
+          "url": "https://github.com/rustam-tolipov/handheld",
+          "title": "Github",
+          "project_id": 4
+        },
+        {
+          "id": 5,
+          "url": "https://handheld-3d.vercel.app",
           "title": "Live",
           "project_id": 4
         }
@@ -205,9 +223,9 @@
           "project_id": 5
         },
         {
-          "id": 6,
-          "url": "https://personal-budget-v2-ui.vercel.app/",
-          "title": "Live",
+          "id": 5,
+          "url": "https://github.com/rustam-tolipov/personal_budget_ui_v2",
+          "title": "Under Construction",
           "project_id": 5
         }
       ],
@@ -255,8 +273,14 @@
       "links": [
         {
           "id": 7,
-          "url": "https://best-dental-clinic.vercel.app/",
-          "title": "Live",
+          "url": "https://github.com/rustam-tolipov/best-dental-clinic",
+          "title": "Github",
+          "project_id": 6
+        },
+        {
+          "id": 7,
+          "url": "https://github.com/rustam-tolipov/best-dental-clinic",
+          "title": "Under Construction",
           "project_id": 6
         }
       ],

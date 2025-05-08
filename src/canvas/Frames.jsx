@@ -62,7 +62,7 @@ const Frames = ({ nodes, materials }) => {
         rotation={[0, 0, -Math.PI / 2]}
         onPointerOver={() => onHover("project3")}
         onPointerOut={() => onHover(false)}
-        onClick={() => window.open(`${BASE_URL}/premium-pencils`, "_blank")}
+        onClick={() => window.open(`${BASE_URL}/dior-movers`, "_blank")}
       >
         <Image
           url={socialAPI}

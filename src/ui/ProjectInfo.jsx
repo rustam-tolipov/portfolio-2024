@@ -33,9 +33,9 @@ const projects_list = [
     id: "project4",
   },
   {
-    title: "Premium Pencils",
-    description: "React Three Fiber, Context API, React Spring, React Router",
-    link: "selmart",
+    title: "Dior Movers",
+    description: "React JS, Context API, Framer Motion",
+    link: "dior-movers",
     id: "project3",
   },
 ];

@@ -34,10 +34,6 @@ const navigations = [
     name: TV_SECTION,
     icon: <CiYoutube className="text-xl text-gray-50 lg:text-2xl" />,
   },
-  {
-    name: EXPERIENCE_SECTION,
-    icon: <CiMemoPad className="text-xl text-gray-50 lg:text-2xl" />,
-  },
 ];
 
 const Navigation = () => {
