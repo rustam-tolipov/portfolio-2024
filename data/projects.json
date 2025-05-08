@@ -109,8 +109,8 @@
         "React JS",
         "Context API",
         "Responsive Design",
-        "Blender",
-        "3D modeling"
+        "Tailwind CSS",
+        "Framer Motion"
       ],
       "paragraphs": []
     },
@@ -201,14 +201,7 @@
         }
       ],
       "thumb": "https://res.cloudinary.com/dhatgaadw/image/upload/v1708575067/ltvxosg0ltozby6nkd5a.jpg",
-      "stacks": [
-        "Blender",
-        "React Three Fiber",
-        "3D Modeling",
-        "React JS",
-        "Ruby on Rails",
-        "Scss"
-      ],
+      "stacks": ["Blender", "React Three Fiber", "3D Modeling", "React JS"],
       "paragraphs": []
     },
     {
